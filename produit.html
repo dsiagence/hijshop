@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hijab Bandeau Premium Confort — hijshop</title>
+  <meta name="description" content="Le hijab qui simplifie ta vie sans compromis sur l'élégance. Bandeau intégré, confort exceptionnel. Qualité premium." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --rose:        #C8938A;
+      --rose-light:  #E8C5BF;
+      --rose-pale:   #F5EBE8;
+      --mauve:       #B08A9A;
+      --mauve-light: #D6BEC8;
+      --cream:       #FAF6F3;
+      --cream-dark:  #F0E8E3;
+      --brown:       #3D2420;
+      --brown-mid:   #7A4F47;
+      --white:       #FFFFFF;
+      --black:       #1A1008;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       ANNOUNCEMENT + HEADER
+    ============================= */
+    .announcement {
+      background: var(--brown);
+      color: var(--rose-light);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 246, 243, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brown);
+      text-transform: lowercase;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--brown); transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--rose); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-icons { display: flex; gap: 20px; align-items: center; }
+    .nav-icons a { font-size: 13px; letter-spacing: 1px; color: var(--brown-mid); transition: color 0.2s; }
+    .nav-icons a:hover { color: var(--rose); }
+    .cart-count {
+      background: var(--rose); color: var(--white);
+      font-size: 10px; width: 18px; height: 18px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-left: 4px;
+    }
+
+    /* ============================
+       BREADCRUMB
+    ============================= */
+    .breadcrumb {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--brown-mid);
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--brown-mid); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--rose); }
+    .breadcrumb span { color: var(--rose); }
+
+    /* ============================
+       PRODUCT MAIN LAYOUT
+    ============================= */
+    .product-main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ============================
+       GALLERY (colonne gauche)
+       Images attendues:
+         images/produit-detail-1.jpg → vue principale (3/4 portrait, fond neutre)
+         images/produit-detail-2.jpg → vue latérale ou détail tissu
+         images/produit-detail-3.jpg → modèle portant le produit
+         images/produit-detail-4.jpg → détail couture / finition
+    ============================= */
+    .gallery {
+      position: sticky;
+      top: 100px;
+    }
+
+    .gallery-main {
+      aspect-ratio: 3/4;
+      background: var(--cream-dark);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 14px;
+      cursor: zoom-in;
+    }
+
+    .gallery-main-img {
+      width: 100%;
+      height: 100%;
+      background: url('images/produit-detail-1.jpg') center / cover no-repeat, var(--cream-dark);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gallery-main:hover .gallery-main-img {
+      transform: scale(1.04);
+    }
+
+    /* Badge sur image principale */
+    .gallery-badge {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: var(--rose);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      z-index: 2;
+    }
+
+    /* Wishlist btn sur image */
+    .gallery-wishlist {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 40px; height: 40px;
+      background: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      z-index: 2;
+      transition: all 0.2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .gallery-wishlist:hover { background: var(--rose-pale); }
+    .gallery-wishlist.active { color: var(--rose); }
+
+    /* Zoom hint */
+    .zoom-hint {
+      position: absolute;
+      bottom: 16px; right: 16px;
+      background: rgba(255,255,255,0.85);
+      padding: 6px 12px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-main:hover .zoom-hint { opacity: 1; }
+
+    /* Thumbnails */
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .thumb {
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .thumb.active { border-color: var(--rose); }
+    .thumb:hover { border-color: var(--rose-light); }
+
+    /* 
+      Thumbnails — fichiers image :
+      thumb-1 → images/produit-detail-1.jpg
+      thumb-2 → images/produit-detail-2.jpg
+      thumb-3 → images/produit-detail-3.jpg
+      thumb-4 → images/produit-detail-4.jpg
+    */
+    .thumb-1 { background: url('images/produit-detail-1.jpg') center/cover no-repeat, var(--cream-dark); }
+    .thumb-2 { background: url('images/produit-detail-2.jpg') center/cover no-repeat, var(--cream-dark); }
+    .thumb-3 { background: url('images/produit-detail-3.jpg') center/cover no-repeat, var(--cream-dark); }
+    .thumb-4 { background: url('images/produit-detail-4.jpg') center/cover no-repeat, var(--cream-dark); }
+
+    /* ============================
+       PRODUCT INFO (colonne droite)
+    ============================= */
+    .product-info {
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* En-tête produit */
+    .product-header {}
+
+    .product-category {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    /* Étoiles & avis */
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 2px;
+      color: var(--rose);
+      font-size: 14px;
+    }
+
+    .rating-text {
+      font-size: 13px;
+      color: var(--brown-mid);
+    }
+
+    .rating-link {
+      font-size: 12px;
+      color: var(--rose);
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--rose-light);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .rating-link:hover { border-color: var(--rose); }
+
+    /* Prix */
+    .product-price-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .price-current {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1;
+    }
+
+    .price-old {
+      font-size: 20px;
+      text-decoration: line-through;
+      color: var(--mauve-light);
+      font-weight: 300;
+    }
+
+    .price-badge {
+      background: var(--rose);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--brown-mid);
+      margin-left: auto;
+    }
+
+    /* Couleurs */
+    .option-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .option-selected {
+      font-weight: 300;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--brown-mid);
+    }
+
+    .color-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .color-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .color-btn:hover { transform: scale(1.1); }
+
+    .color-btn.active {
+      border-color: var(--brown);
+      box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--brown);
+    }
+
+    /* Tooltip couleur */
+    .color-btn::after {
+      content: attr(data-color);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brown);
+      color: var(--white);
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .color-btn:hover::after { opacity: 1; }
+
+    /* Tailles */
+    .size-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .size-btn {
+      min-width: 52px;
+      height: 52px;
+      padding: 0 14px;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--brown-mid);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .size-btn:hover {
+      border-color: var(--brown);
+      color: var(--brown);
+    }
+
+    .size-btn.active {
+      background: var(--brown);
+      border-color: var(--brown);
+      color: var(--white);
+    }
+
+    .size-btn.unavailable {
+      opacity: 0.35;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+
+    .size-guide-link {
+      font-size: 12px;
+      color: var(--rose);
+      cursor: pointer;
+      border-bottom: 1px solid var(--rose-light);
+      align-self: flex-start;
+      transition: border-color 0.2s;
+      margin-top: 4px;
+    }
+    .size-guide-link:hover { border-color: var(--rose); }
+
+    /* Quantité */
+    .qty-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .qty-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--cream-dark);
+      background: var(--white);
+    }
+
+    .qty-btn {
+      width: 42px; height: 42px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--brown-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .qty-btn:hover { background: var(--cream-dark); color: var(--brown); }
+
+    .qty-display {
+      width: 48px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown);
+      border-left: 1px solid var(--cream-dark);
+      border-right: 1px solid var(--cream-dark);
+      padding: 10px 0;
+    }
+
+    /* CTAs */
+    .cta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      padding: 18px;
+      background: var(--brown);
+      color: var(--white);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn-add-cart:hover { background: var(--brown-mid); }
+    .btn-add-cart.loading { opacity: 0.7; pointer-events: none; }
+
+    .btn-buy-now {
+      width: 100%;
+      padding: 18px;
+      background: transparent;
+      color: var(--brown);
+      border: 1px solid var(--brown);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-buy-now:hover { background: var(--brown); color: var(--white); }
+
+    /* Réassurance mini */
+    .mini-reassurance {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .mini-reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--brown-mid);
+    }
+
+    .mini-reassurance-item span:first-child { font-size: 16px; }
+
+    /* Partager */
+    .share-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 8px;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .share-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+    }
+
+    .share-btn {
+      width: 34px; height: 34px;
+      border: 1px solid var(--cream-dark);
+      background: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      color: var(--brown-mid);
+      transition: all 0.2s;
+    }
+    .share-btn:hover { border-color: var(--rose); color: var(--rose); }
+
+    /* ============================
+       ACCORDÉONS — DESCRIPTION, MATIÈRE, LIVRAISON
+    ============================= */
+    .accordeons {
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .accord {
+      border-bottom: 1px solid var(--cream-dark);
+      overflow: hidden;
+    }
+
+    .accord-header {
+      width: 100%;
+      padding: 18px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    .accord-header:hover { color: var(--rose); }
+
+    .accord-icon {
+      font-size: 18px;
+      transition: transform 0.3s;
+      color: var(--rose);
+    }
+
+    .accord.open .accord-icon { transform: rotate(45deg); }
+
+    .accord-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .accord.open .accord-body { max-height: 600px; }
+
+    .accord-content {
+      padding: 4px 0 24px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.85;
+    }
+
+    .accord-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .accord-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .accord-list li::before {
+      content: '—';
+      color: var(--rose);
+      flex-shrink: 0;
+    }
+
+    /* ============================
+       SECTION AVIS
+    ============================= */
+    .avis-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .avis-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+    }
+
+    .avis-score {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .avis-big-score {
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1;
+    }
+
+    .avis-score-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .avis-stars { display: flex; gap: 3px; color: var(--rose); font-size: 18px; }
+
+    .avis-count {
+      font-size: 13px;
+      color: var(--brown-mid);
+    }
+
+    .avis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .avis-card {
+      background: var(--white);
+      padding: 28px;
+      border: 1px solid var(--cream-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.3s;
+    }
+    .avis-card:hover { border-color: var(--rose-light); }
+
+    .avis-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .avis-author {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brown);
+    }
+
+    .avis-date {
+      font-size: 11px;
+      color: var(--mauve-light);
+    }
+
+    .avis-card-stars { display: flex; gap: 2px; color: var(--rose); font-size: 12px; }
+
+    .avis-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--brown);
+    }
+
+    .avis-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.7;
+    }
+
+    .avis-verified {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .avis-write-btn {
+      display: block;
+      text-align: center;
+      padding: 16px;
+      border: 1px solid var(--cream-dark);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      cursor: pointer;
+      transition: all 0.3s;
+      background: var(--white);
+      width: 100%;
+      font-family: var(--font-body);
+    }
+    .avis-write-btn:hover { border-color: var(--rose); color: var(--rose); }
+
+    /* ============================
+       PRODUITS COMPLÉMENTAIRES
+       Images: images/produit-comp-{1-4}.jpg
+    ============================= */
+    .related {
+      background: var(--white);
+      padding: 80px 40px;
+    }
+
+    .related-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .related-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 300;
+      color: var(--brown);
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .related-card { cursor: pointer; }
+
+    .related-card-image {
+      aspect-ratio: 3/4;
+      background: var(--cream-dark);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .related-card:nth-child(1) .related-card-image { background: url('images/produit-comp-1.jpg') center/cover no-repeat, var(--cream-dark); }
+    .related-card:nth-child(2) .related-card-image { background: url('images/produit-comp-2.jpg') center/cover no-repeat, var(--cream-dark); }
+    .related-card:nth-child(3) .related-card-image { background: url('images/produit-comp-3.jpg') center/cover no-repeat, var(--cream-dark); }
+    .related-card:nth-child(4) .related-card-image { background: url('images/produit-comp-4.jpg') center/cover no-repeat, var(--cream-dark); }
+
+    .related-card-image-inner {
+      width: 100%; height: 100%;
+      background: inherit;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+
+    .related-card:hover .related-card-image-inner { transform: scale(1.05); }
+
+    .related-quick-add {
+      position: absolute;
+      bottom: -46px; left: 0; right: 0;
+      z-index: 2;
+      background: var(--brown);
+      color: var(--white);
+      text-align: center;
+      padding: 13px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: bottom 0.35s ease;
+      cursor: pointer;
+    }
+    .related-card:hover .related-quick-add { bottom: 0; }
+
+    .related-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .related-price {
+      font-size: 15px;
+      color: var(--rose);
+      font-weight: 500;
+    }
+
+    /* ============================
+       BUNDLE SUGGESTION
+       Image: images/bundle-suggestion.jpg
+    ============================= */
+    .bundle-suggestion {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .bundle-card {
+      background: var(--rose-pale);
+      border: 1px solid var(--rose-light);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .bundle-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .bundle-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+
+    .bundle-items-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .bundle-items-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--brown-mid);
+    }
+
+    .bundle-items-list li::before {
+      content: '';
+      width: 16px; height: 1px;
+      background: var(--rose);
+    }
+
+    .bundle-price-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .bundle-total {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 300;
+      color: var(--brown);
+    }
+
+    .bundle-saving {
+      background: var(--rose);
+      color: var(--white);
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary { background: var(--brown); color: var(--white); }
+    .btn-primary:hover { background: var(--brown-mid); }
+
+    /* ============================
+       ZOOM MODAL
+    ============================= */
+    .zoom-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(10,5,3,0.92);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    .zoom-modal.open { display: flex; }
+
+    .zoom-modal-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .zoom-close {
+      position: absolute;
+      top: 28px; right: 28px;
+      color: rgba(255,255,255,0.7);
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s;
+    }
+    .zoom-close:hover { color: var(--rose-light); }
+
+    /* ============================
+       REVEAL
+    ============================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ============================
+       FOOTER
+    ============================= */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.6);
+      padding: 80px 40px 40px;
+    }
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 3px;
+      text-transform: lowercase;
+      margin-bottom: 20px;
+    }
+    .footer-logo span { color: var(--rose); }
+    .footer-brand-text { font-size: 13px; font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .social-link {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--rose); color: var(--rose); }
+    .footer-col-title { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--white); margin-bottom: 24px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; font-weight: 300; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--rose); }
+    .footer-bottom {
+      max-width: 1300px; margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; font-size: 12px;
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================= */
+    @media (max-width: 1024px) {
+      .product-main { grid-template-columns: 1fr; gap: 48px; }
+      .gallery { position: static; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+      .avis-grid { grid-template-columns: 1fr 1fr; }
+      .bundle-card { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .product-main, .avis-section, .bundle-suggestion { padding-left: 20px; padding-right: 20px; }
+      .related { padding: 60px 20px; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .avis-grid { grid-template-columns: 1fr; }
+      .avis-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+      .bundle-card { padding: 28px 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .breadcrumb { padding: 16px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    ✨ Livraison gratuite dès 50€ d'achat — Pour toi, sœur
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">hij<span>shop</span></a>
+      <ul class="nav-links">
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="boutique.html">Sport</a></li>
+        <li><a href="lifestyle.html">Lifestyle</a></li>
+        <li><a href="notre-histoire.html">Notre Histoire</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="compte.html">Compte</a>
+        <a href="panier.html">Panier <span class="cart-count" id="cartCount">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Accueil</a>
+    <span>›</span>
+    <a href="boutique.html">Boutique</a>
+    <span>›</span>
+    <a href="boutique.html">Hijabs</a>
+    <span>›</span>
+    <span>Hijab Bandeau Premium Confort</span>
+  </div>
+
+  <!-- ================================
+       PRODUCT MAIN
+  ================================= -->
+  <div class="product-main">
+
+    <!-- ========== GALLERY ==========
+         Fichiers image à placer dans images/ :
+         - produit-detail-1.jpg  → vue principale (fond neutre)
+         - produit-detail-2.jpg  → détail tissu / texture
+         - produit-detail-3.jpg  → modèle portant le hijab
+         - produit-detail-4.jpg  → détail couture / finition bandeau
+    ========================== -->
+    <div class="gallery">
+      <div class="gallery-main" onclick="openZoom()" id="galleryMain">
+        <div class="gallery-main-img" id="mainImg"></div>
+        <span class="gallery-badge">Bestseller</span>
+        <button class="gallery-wishlist" id="wishlistBtn" onclick="toggleWishlist(event)">♡</button>
+        <span class="zoom-hint">+ Zoomer</span>
+      </div>
+
+      <div class="gallery-thumbs">
+        <div class="thumb thumb-1 active" onclick="switchThumb(0, this)"></div>
+        <div class="thumb thumb-2"        onclick="switchThumb(1, this)"></div>
+        <div class="thumb thumb-3"        onclick="switchThumb(2, this)"></div>
+        <div class="thumb thumb-4"        onclick="switchThumb(3, this)"></div>
+      </div>
+    </div>
+
+    <!-- ========== PRODUCT INFO ========== -->
+    <div class="product-info">
+
+      <!-- En-tête -->
+      <div class="product-header">
+        <span class="product-category">Hijabs · Premium</span>
+        <h1 class="product-title">Hijab Bandeau<br>Premium Confort</h1>
+        <div class="product-rating">
+          <div class="stars">★★★★★</div>
+          <span class="rating-text">4.9/5</span>
+          <span class="rating-link" onclick="document.getElementById('avis').scrollIntoView({behavior:'smooth'})">
+            Voir les 47 avis
+          </span>
+        </div>
+      </div>
+
+      <!-- Prix -->
+      <div class="product-price-block">
+        <span class="price-current">24,99 €</span>
+        <span class="price-note">TVA incluse · Livraison gratuite dès 50€</span>
+      </div>
+
+      <!-- Description courte -->
+      <p style="font-size:14px; font-weight:300; color:var(--brown-mid); line-height:1.85;">
+        Le hijab qui simplifie ta vie sans compromis sur l'élégance. Son bandeau intégré offre un confort exceptionnel et une tenue parfaite en toutes circonstances. Qualité premium qui te suit du bureau aux sorties entre sœurs.
+      </p>
+
+      <!-- Couleurs -->
+      <div class="option-block">
+        <span class="option-label">
+          Couleur : <span class="option-selected" id="colorLabel">Noir</span>
+        </span>
+        <div class="color-options">
+          <button class="color-btn active" style="background:#1a1a1a" data-color="Noir"         onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#f5f0eb" data-color="Blanc cassé"  onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#C8938A" data-color="Rose poudré"  onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#B08A9A" data-color="Mauve"        onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#6B8A7A" data-color="Vert sauge"   onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#8A7A6B" data-color="Camel"        onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#7A8A9A" data-color="Bleu gris"    onclick="selectColor(this)"></button>
+          <button class="color-btn"        style="background:#3D2420" data-color="Bordeaux"     onclick="selectColor(this)"></button>
+        </div>
+      </div>
+
+      <!-- Tailles -->
+      <div class="option-block">
+        <span class="option-label">
+          Taille : <span class="option-selected" id="sizeLabel">S/M</span>
+        </span>
+        <div class="size-options">
+          <button class="size-btn active" data-size="S/M"  onclick="selectSize(this)">S/M</button>
+          <button class="size-btn"        data-size="M/L"  onclick="selectSize(this)">M/L</button>
+          <button class="size-btn"        data-size="L/XL" onclick="selectSize(this)">L/XL</button>
+          <button class="size-btn unavailable" data-size="XL/XXL" disabled>XL/XXL</button>
+        </div>
+        <span class="size-guide-link" onclick="openSizeGuide()">Guide des tailles →</span>
+      </div>
+
+      <!-- Quantité -->
+      <div class="qty-block">
+        <span class="qty-label">Qté</span>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(-1)">−</button>
+          <span class="qty-display" id="qtyDisplay">1</span>
+          <button class="qty-btn" onclick="updateQty(1)">+</button>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="cta-block">
+        <button class="btn-add-cart" id="addCartBtn" onclick="addToCart()">
+          <span>🛍️</span>
+          <span id="addCartText">Ajouter au panier</span>
+        </button>
+        <button class="btn-buy-now" onclick="buyNow()">
+          Acheter maintenant
+        </button>
+      </div>
+
+      <!-- Mini réassurance -->
+      <div class="mini-reassurance">
+        <div class="mini-reassurance-item">
+          <span>🚚</span>
+          <span>Livraison gratuite dès 50€ · 3 à 5 jours ouvrés</span>
+        </div>
+        <div class="mini-reassurance-item">
+          <span>↩️</span>
+          <span>Retours gratuits sous 30 jours</span>
+        </div>
+        <div class="mini-reassurance-item">
+          <span>🔒</span>
+          <span>Paiement 100% sécurisé (CB, PayPal, Apple Pay)</span>
+        </div>
+        <div class="mini-reassurance-item">
+          <span>✨</span>
+          <span>Pudeur islamique garantie — sélectionné avec soin</span>
+        </div>
+      </div>
+
+      <!-- Accordéons -->
+      <div class="accordeons">
+
+        <div class="accord open">
+          <button class="accord-header" onclick="toggleAccord(this)">
+            Description complète
+            <span class="accord-icon">+</span>
+          </button>
+          <div class="accord-body">
+            <div class="accord-content">
+              <p>Le hijab qui simplifie ta vie sans compromis sur l'élégance. Son bandeau intégré offre un confort exceptionnel et une tenue parfaite en toutes circonstances.</p>
+              <ul class="accord-list">
+                <li>Bandeau intégré pour un maintien parfait sans épingles supplémentaires</li>
+                <li>Tissu premium doux au toucher et respirant</li>
+                <li>Coupe généreuse qui offre une couverture complète</li>
+                <li>Résistant aux lavages répétés sans perdre sa forme</li>
+                <li>Disponible en 8 coloris assortis à toutes les tenues</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accord">
+          <button class="accord-header" onclick="toggleAccord(this)">
+            Matières & Entretien
+            <span class="accord-icon">+</span>
+          </button>
+          <div class="accord-body">
+            <div class="accord-content">
+              <ul class="accord-list">
+                <li>95% Polyester, 5% Élasthanne</li>
+                <li>Tissu jersey premium — toucher doux et mat</li>
+                <li>Lavage en machine à 30°C, cycle délicat</li>
+                <li>Ne pas utiliser de sèche-linge</li>
+                <li>Repassage à basse température si nécessaire</li>
+                <li>Tissu opaque — aucune transparence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accord">
+          <button class="accord-header" onclick="toggleAccord(this)">
+            Livraison & Retours
+            <span class="accord-icon">+</span>
+          </button>
+          <div class="accord-body">
+            <div class="accord-content">
+              <ul class="accord-list">
+                <li>Livraison France : 3 à 5 jours ouvrés après expédition</li>
+                <li>Livraison Europe : 5 à 8 jours ouvrés</li>
+                <li>Livraison gratuite dès 50€ d'achat (sinon 4,99€)</li>
+                <li>Livraison express disponible : 9,99€ (2-3 jours)</li>
+                <li>Retours gratuits sous 30 jours — remboursement sous 5 à 7 jours</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accord">
+          <button class="accord-header" onclick="toggleAccord(this)">
+            Conformité islamique
+            <span class="accord-icon">+</span>
+          </button>
+          <div class="accord-body">
+            <div class="accord-content">
+              <p>Ce produit a été rigoureusement sélectionné selon nos critères de modestie islamique :</p>
+              <ul class="accord-list">
+                <li>Tissu 100% opaque — aucune transparence même en plein soleil</li>
+                <li>Coupe ample garantissant une couverture complète</li>
+                <li>Bandeau intégré couvrant le cou et la poitrine</li>
+                <li>Vérifié et approuvé par notre équipe de sœurs pratiquantes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Partager -->
+      <div class="share-block">
+        <span class="share-label">Partager</span>
+        <button class="share-btn" title="Instagram" onclick="shareProduct('instagram')">IG</button>
+        <button class="share-btn" title="Facebook" onclick="shareProduct('facebook')">FB</button>
+        <button class="share-btn" title="WhatsApp" onclick="shareProduct('whatsapp')">WA</button>
+        <button class="share-btn" title="Copier le lien" onclick="copyLink()">🔗</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       BUNDLE SUGGESTION
+       Image: images/bundle-suggestion.jpg
+  ================================= -->
+  <div class="bundle-suggestion">
+    <div class="bundle-card">
+      <div>
+        <span class="bundle-label">Complète ta tenue</span>
+        <h3 class="bundle-title">Pack Essentiel Hijab</h3>
+        <ul class="bundle-items-list">
+          <li>Hijab Bandeau Premium Confort (ce produit)</li>
+          <li>Épingles Hijab Essentielles × 1 pack</li>
+        </ul>
+        <div class="bundle-price-row">
+          <span class="bundle-total">29,99 €</span>
+          <span class="bundle-saving">−3,99 € économisés</span>
+        </div>
+        <br>
+        <button class="btn btn-primary" onclick="addBundleToCart()">
+          Ajouter le pack au panier
+        </button>
+      </div>
+      <div style="height:220px; min-width:280px; background:url('images/bundle-suggestion.jpg') center/cover no-repeat, var(--cream-dark);"></div>
+    </div>
+  </div>
+
+  <!-- ================================
+       AVIS CLIENTS
+  ================================= -->
+  <div class="avis-section" id="avis">
+    <div class="avis-header">
+      <div class="avis-score">
+        <span class="avis-big-score">4.9</span>
+        <div class="avis-score-detail">
+          <div class="avis-stars">★★★★★</div>
+          <span class="avis-count">47 avis vérifiés</span>
+        </div>
+      </div>
+      <button class="avis-write-btn" style="max-width:200px" onclick="openReviewForm()">
+        Laisser un avis
+      </button>
+    </div>
+
+    <div class="avis-grid reveal">
+
+      <div class="avis-card">
+        <div class="avis-card-header">
+          <span class="avis-author">Fatima R.</span>
+          <span class="avis-date">Jan. 2025</span>
+        </div>
+        <div class="avis-card-stars">★★★★★</div>
+        <h4 class="avis-title">Enfin un hijab parfait !</h4>
+        <p class="avis-text">Le bandeau intégré change tout — plus besoin de chercher une épingle en urgence le matin. Le tissu est doux et vraiment opaque. Je l'ai commandé en noir et vais le recommander en d'autres couleurs.</p>
+        <span class="avis-verified">✓ Achat vérifié</span>
+      </div>
+
+      <div class="avis-card">
+        <div class="avis-card-header">
+          <span class="avis-author">Khadija M.</span>
+          <span class="avis-date">Déc. 2024</span>
+        </div>
+        <div class="avis-card-stars">★★★★★</div>
+        <h4 class="avis-title">Qualité premium au rendez-vous</h4>
+        <p class="avis-text">J'ai commandé 3 couleurs d'un coup tellement j'ai été conquise à la réception. Le tissu tient super bien au lavage, aucune déformation. Je recommande sans hésitation à toutes mes sœurs !</p>
+        <span class="avis-verified">✓ Achat vérifié</span>
+      </div>
+
+      <div class="avis-card">
+        <div class="avis-card-header">
+          <span class="avis-author">Ines B.</span>
+          <span class="avis-date">Nov. 2024</span>
+        </div>
+        <div class="avis-card-stars">★★★★☆</div>
+        <h4 class="avis-title">Très bonne qualité, livraison rapide</h4>
+        <p class="avis-text">Satisfaite de mon achat. Le hijab est conforme à la description, le bandeau est bien pensé. J'aurais juste aimé un coloris un peu plus vif parmi les choix. Sinon tout est parfait.</p>
+        <span class="avis-verified">✓ Achat vérifié</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       PRODUITS COMPLÉMENTAIRES
+       Images: images/produit-comp-1.jpg à 4.jpg
+  ================================= -->
+  <section class="related">
+    <div class="related-inner">
+      <div class="related-header">
+        <div>
+          <span class="section-label">Tu pourrais aussi aimer</span>
+          <h2 class="section-title">Complète ta garde-robe</h2>
+        </div>
+        <a href="boutique.html" style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--rose); border-bottom:1px solid var(--rose-light); padding-bottom:2px;">
+          Voir tout →
+        </a>
+      </div>
+
+      <div class="related-grid">
+        <a href="produit.html" class="related-card reveal">
+          <div class="related-card-image">
+            <div class="related-card-image-inner"></div>
+            <div class="related-quick-add" onclick="event.preventDefault(); addRelatedToCart(this)">Ajouter au panier</div>
+          </div>
+          <p class="related-name">Hijab Instant Premium</p>
+          <p class="related-price">19,99 €</p>
+        </a>
+
+        <a href="produit.html" class="related-card reveal reveal-d1">
+          <div class="related-card-image">
+            <div class="related-card-image-inner"></div>
+            <div class="related-quick-add" onclick="event.preventDefault(); addRelatedToCart(this)">Ajouter au panier</div>
+          </div>
+          <p class="related-name">Épingles Hijab Essentielles</p>
+          <p class="related-price">8,99 €</p>
+        </a>
+
+        <a href="produit.html" class="related-card reveal reveal-d2">
+          <div class="related-card-image">
+            <div class="related-card-image-inner"></div>
+            <div class="related-quick-add" onclick="event.preventDefault(); addRelatedToCart(this)">Ajouter au panier</div>
+          </div>
+          <p class="related-name">Hijab Long Élégance Complète</p>
+          <p class="related-price">29,99 €</p>
+        </a>
+
+        <a href="produit.html" class="related-card reveal reveal-d3">
+          <div class="related-card-image">
+            <div class="related-card-image-inner"></div>
+            <div class="related-quick-add" onclick="event.preventDefault(); addRelatedToCart(this)">Ajouter au panier</div>
+          </div>
+          <p class="related-name">Hijab Sport Performance Plus</p>
+          <p class="related-price">34,99 €</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">hij<span>shop</span></div>
+        <p class="footer-brand-text">La destination lifestyle des femmes musulmanes. Mode pudique, sportswear halal et contenus inspirants.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">TK</a>
+          <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="social-link">YT</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Boutique</h4>
+        <ul class="footer-links">
+          <li><a href="boutique.html">Hijabs</a></li>
+          <li><a href="boutique.html">Sportswear</a></li>
+          <li><a href="boutique.html">Accessoires</a></li>
+          <li><a href="boutique.html">Packs & Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Lifestyle</h4>
+        <ul class="footer-links">
+          <li><a href="lifestyle.html">Podcast</a></li>
+          <li><a href="lifestyle.html">Coaching Sport</a></li>
+          <li><a href="lifestyle.html">Rappels Islamiques</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Aide</h4>
+        <ul class="footer-links">
+          <li><a href="notre-histoire.html">Notre Histoire</a></li>
+          <li><a href="livraison.html">Livraison & Retours</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 hijshop — Mode musulmane avec fierté</p>
+      <div style="display:flex;gap:24px;">
+        <a href="mentions-legales.html" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Mentions légales</a>
+        <a href="#" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ZOOM MODAL -->
+  <div class="zoom-modal" id="zoomModal" onclick="closeZoom()">
+    <button class="zoom-close" onclick="closeZoom()">✕</button>
+    <img class="zoom-modal-img" id="zoomImg" src="images/produit-detail-1.jpg" alt="Vue agrandie" />
+  </div>
+
+  <script>
+    // ========== SCROLL REVEAL ==========
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => obs.observe(el));
+
+    // ========== GALLERY SWITCH ==========
+    const images = [
+      'images/produit-detail-1.jpg',
+      'images/produit-detail-2.jpg',
+      'images/produit-detail-3.jpg',
+      'images/produit-detail-4.jpg'
+    ];
+
+    let currentImg = 0;
+
+    function switchThumb(index, el) {
+      currentImg = index;
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      const mainImg = document.getElementById('mainImg');
+      mainImg.style.opacity = '0';
+      mainImg.style.transform = 'scale(1.02)';
+      setTimeout(() => {
+        mainImg.style.backgroundImage = `url('${images[index]}'), var(--cream-dark)`;
+        mainImg.style.opacity = '1';
+        mainImg.style.transform = '';
+        document.getElementById('zoomImg').src = images[index];
+      }, 200);
+      mainImg.style.transition = 'opacity 0.2s, transform 0.2s';
+    }
+
+    // ========== ZOOM ==========
+    function openZoom() {
+      document.getElementById('zoomModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeZoom() {
+      document.getElementById('zoomModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeZoom(); });
+
+    // ========== COLOR SELECT ==========
+    function selectColor(btn) {
+      document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('colorLabel').textContent = btn.dataset.color;
+    }
+
+    // ========== SIZE SELECT ==========
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn:not(.unavailable)').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('sizeLabel').textContent = btn.dataset.size;
+    }
+
+    // ========== QUANTITY ==========
+    let qty = 1;
+    function updateQty(delta) {
+      qty = Math.max(1, Math.min(10, qty + delta));
+      document.getElementById('qtyDisplay').textContent = qty;
+    }
+
+    // ========== CART ==========
+    let cartTotal = 0;
+    function addToCart() {
+      const btn = document.getElementById('addCartBtn');
+      const txt = document.getElementById('addCartText');
+      cartTotal += qty;
+      document.getElementById('cartCount').textContent = cartTotal;
+      btn.classList.add('loading');
+      txt.textContent = '✓ Ajouté au panier !';
+      btn.style.background = 'var(--rose)';
+      setTimeout(() => {
+        btn.classList.remove('loading');
+        txt.textContent = 'Ajouter au panier';
+        btn.style.background = '';
+      }, 2200);
+    }
+
+    function buyNow() {
+      addToCart();
+      setTimeout(() => window.location.href = 'panier.html', 800);
+    }
+
+    function addRelatedToCart(btn) {
+      cartTotal++;
+      document.getElementById('cartCount').textContent = cartTotal;
+      const orig = btn.textContent;
+      btn.textContent = '✓ Ajouté !';
+      btn.style.background = 'var(--rose)';
+      setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1500);
+    }
+
+    function addBundleToCart() {
+      cartTotal += 2;
+      document.getElementById('cartCount').textContent = cartTotal;
+      const btns = document.querySelectorAll('.bundle-card .btn-primary');
+      btns.forEach(b => {
+        b.textContent = '✓ Pack ajouté !';
+        b.style.background = 'var(--rose)';
+        setTimeout(() => { b.textContent = 'Ajouter le pack au panier'; b.style.background = ''; }, 2000);
+      });
+    }
+
+    // ========== WISHLIST ==========
+    function toggleWishlist(e) {
+      e.stopPropagation();
+      const btn = document.getElementById('wishlistBtn');
+      btn.classList.toggle('active');
+      btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+    }
+
+    // ========== ACCORDÉONS ==========
+    function toggleAccord(btn) {
+      const accord = btn.parentElement;
+      const wasOpen = accord.classList.contains('open');
+      document.querySelectorAll('.accord').forEach(a => a.classList.remove('open'));
+      if (!wasOpen) accord.classList.add('open');
+    }
+
+    // ========== SHARE ==========
+    function shareProduct(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('Découvre ce hijab premium sur hijshop 🤍');
+      const urls = {
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        whatsapp: `https://wa.me/?text=${text}%20${url}`
+      };
+      if (urls[platform]) window.open(urls[platform], '_blank');
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[title="Copier le lien"]');
+        btn.textContent = '✓';
+        btn.style.color = 'var(--rose)';
+        setTimeout(() => { btn.textContent = '🔗'; btn.style.color = ''; }, 2000);
+      });
+    }
+
+    // ========== SIZE GUIDE ==========
+    function openSizeGuide() {
+      alert('Guide des tailles :\nS/M → Tour de tête 54-56cm\nM/L → Tour de tête 56-58cm\nL/XL → Tour de tête 58-60cm\n\nEn cas de doute, prenez la taille au-dessus.');
+    }
+
+    function openReviewForm() {
+      alert('La fonction d\'avis sera disponible très prochainement.\nMerci pour ta confiance, sœur ! 🤍');
+    }
+  </script>
+
+</body>
+</html>
