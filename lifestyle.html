@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lifestyle Hub — hijshop</title>
+  <meta name="description" content="Podcast mariage & foi, coaching sport & nutrition, rappels islamiques quotidiens. Le lifestyle hub des femmes musulmanes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================
+       VARIABLES & RESET
+    ============================= */
+    :root {
+      --rose:        #C8938A;
+      --rose-light:  #E8C5BF;
+      --rose-pale:   #F5EBE8;
+      --mauve:       #B08A9A;
+      --mauve-light: #D6BEC8;
+      --cream:       #FAF6F3;
+      --cream-dark:  #F0E8E3;
+      --brown:       #3D2420;
+      --brown-mid:   #7A4F47;
+      --white:       #FFFFFF;
+      --black:       #1A1008;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       ANNOUNCEMENT + HEADER
+    ============================= */
+    .announcement {
+      background: var(--brown);
+      color: var(--rose-light);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 246, 243, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brown);
+      text-transform: lowercase;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--rose);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--rose); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    .nav-icons { display: flex; gap: 20px; align-items: center; }
+    .nav-icons a { font-size: 13px; letter-spacing: 1px; color: var(--brown-mid); transition: color 0.2s; }
+    .nav-icons a:hover { color: var(--rose); }
+    .cart-count {
+      background: var(--rose); color: var(--white);
+      font-size: 10px; width: 18px; height: 18px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-left: 4px;
+    }
+
+    /* ============================
+       HERO — LIFESTYLE HUB
+       Image: images/lifestyle-hero.jpg
+       → Grande photo ambiance, sereine et moderne
+    ============================= */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 580px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(26,16,8,0.75) 0%, rgba(26,16,8,0.3) 55%, transparent 100%),
+        url('images/lifestyle-hero.jpg') center / cover no-repeat;
+      animation: zoomIn 14s ease-out forwards;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.00); }
+    }
+
+    /* Motif ornemental arabesque en overlay */
+    .hero-ornament {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 420px;
+      opacity: 0.07;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px;
+      max-width: 680px;
+      animation: fadeUp 1.2s ease-out 0.3s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 7vw, 82px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose-light);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    /* 3 pilliers en bas du hero */
+    .hero-pillars {
+      display: flex;
+      gap: 32px;
+    }
+
+    .hero-pillar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.65);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .hero-pillar:hover { color: var(--rose-light); }
+
+    .hero-pillar-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .hero-pillar:hover .hero-pillar-icon { border-color: var(--rose-light); }
+
+    /* ============================
+       SECTION NAV (anchor tabs)
+    ============================= */
+    .section-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--cream-dark);
+      position: sticky;
+      top: 72px;
+      z-index: 90;
+    }
+
+    .section-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .section-nav-btn {
+      padding: 20px 40px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-nav-btn:hover { color: var(--rose); }
+    .section-nav-btn.active {
+      color: var(--brown);
+      border-bottom-color: var(--rose);
+    }
+
+    .section-nav-btn .nav-icon { font-size: 16px; }
+
+    /* ============================
+       SHARED SECTION STYLES
+    ============================= */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--brown);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ============================
+       ① PODCAST
+       Image hero: images/podcast-hero.jpg
+       Images épisodes: images/episode-1.jpg à episode-4.jpg
+    ============================= */
+    #podcast {
+      padding: 120px 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .podcast-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .podcast-cover {
+      position: relative;
+      height: 520px;
+    }
+
+    /* Image cover podcast
+       Fichier: images/podcast-cover.jpg
+       → Photo ambiance conversation, café, sérénité */
+    .podcast-cover-img {
+      width: 88%;
+      height: 100%;
+      background: url('images/podcast-cover.jpg') center / cover no-repeat,
+                  linear-gradient(135deg, var(--rose-pale), var(--mauve-light));
+    }
+
+    /* Cadre décoratif */
+    .podcast-cover::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 55%;
+      height: 65%;
+      border: 1px solid var(--rose-light);
+      z-index: -1;
+    }
+
+    /* Badge flottant */
+    .podcast-badge {
+      position: absolute;
+      top: 32px;
+      right: 0;
+      background: var(--brown);
+      color: var(--white);
+      padding: 20px 24px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+
+    .podcast-badge-icon { font-size: 26px; display: block; margin-bottom: 8px; }
+    .podcast-badge-text {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      display: block;
+    }
+
+    .podcast-text { display: flex; flex-direction: column; gap: 24px; }
+
+    .podcast-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4vw, 58px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--brown);
+    }
+
+    .podcast-title em { font-style: italic; color: var(--rose); }
+
+    .podcast-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.85;
+    }
+
+    /* Thèmes tags */
+    .podcast-themes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .theme-tag {
+      padding: 7px 16px;
+      background: var(--rose-pale);
+      border: 1px solid var(--rose-light);
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--brown-mid);
+    }
+
+    /* Stats row */
+    .podcast-stats {
+      display: flex;
+      gap: 40px;
+      padding: 28px 0;
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .stat { display: flex; flex-direction: column; gap: 4px; }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1;
+    }
+    .stat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brown-mid); }
+
+    .podcast-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary { background: var(--brown); color: var(--white); }
+    .btn-primary:hover { background: var(--brown-mid); }
+    .btn-youtube {
+      background: #FF0000;
+      color: var(--white);
+    }
+    .btn-youtube:hover { background: #cc0000; }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--brown);
+      border: 1px solid var(--brown);
+    }
+    .btn-outline-dark:hover { background: var(--brown); color: var(--white); }
+
+    /* Episodes grid */
+    .episodes-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .episode-card {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+      background: var(--white);
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .episode-card:hover {
+      box-shadow: 0 12px 40px rgba(61,36,32,0.12);
+      transform: translateY(-3px);
+    }
+
+    /*
+      Images épisodes: images/episode-1.jpg à episode-4.jpg
+      → Visuels thématiques (mariage, foi, fitness, développement personnel)
+    */
+    .episode-thumb {
+      aspect-ratio: 1;
+      background: var(--cream-dark);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .episode-card:nth-child(1) .episode-thumb { background-image: url('images/episode-1.jpg'), linear-gradient(135deg, var(--rose-pale), var(--mauve-light)); }
+    .episode-card:nth-child(2) .episode-thumb { background-image: url('images/episode-2.jpg'), linear-gradient(135deg, var(--mauve-light), var(--cream-dark)); }
+    .episode-card:nth-child(3) .episode-thumb { background-image: url('images/episode-3.jpg'), linear-gradient(135deg, var(--cream-dark), var(--rose-pale)); }
+    .episode-card:nth-child(4) .episode-thumb { background-image: url('images/episode-4.jpg'), linear-gradient(135deg, var(--rose-light), var(--mauve)); }
+
+    .episode-play {
+      position: absolute;
+      inset: 0;
+      background: rgba(61,36,32,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .episode-card:hover .episode-play { background: rgba(61,36,32,0.35); }
+
+    .play-icon {
+      width: 42px; height: 42px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s, transform 0.3s;
+      color: var(--brown);
+      padding-left: 3px;
+    }
+
+    .episode-card:hover .play-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .episode-info {
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .episode-number {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    .episode-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1.25;
+    }
+
+    .episode-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .episode-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--mauve);
+    }
+
+    .episode-meta span::before { content: '· '; }
+    .episode-meta span:first-child::before { content: ''; }
+
+    /* ============================
+       ② COACHING SPORT
+    ============================= */
+    #coaching {
+      background: var(--brown);
+      padding: 120px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cercles décoratifs */
+    #coaching::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,147,138,0.12);
+    }
+    #coaching::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,147,138,0.08);
+    }
+
+    .coaching-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .coaching-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .coaching-text { display: flex; flex-direction: column; gap: 28px; }
+
+    .coaching-text .section-label { color: var(--rose-light); }
+
+    .coaching-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4.5vw, 62px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .coaching-title em { font-style: italic; color: var(--rose-light); }
+
+    .coaching-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+    }
+
+    /* Features list */
+    .coaching-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .coaching-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .feature-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--rose);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* Coming soon block */
+    .coming-soon-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(200,147,138,0.2);
+      padding: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .coming-soon-icon {
+      width: 80px; height: 80px;
+      border: 1px solid rgba(200,147,138,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+    }
+
+    .coming-soon-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .coming-soon-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      max-width: 320px;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+
+    .progress-bar {
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--rose);
+      width: 65%;
+      animation: progressLoad 2s ease-out 0.5s both;
+    }
+
+    @keyframes progressLoad {
+      from { width: 0; }
+      to   { width: 65%; }
+    }
+
+    /* Preview cards */
+    .coaching-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .preview-card {
+      background: rgba(255,255,255,0.06);
+      padding: 20px 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .preview-card:hover { border-color: rgba(200,147,138,0.3); }
+
+    .preview-icon { font-size: 24px; display: block; margin-bottom: 10px; }
+
+    .preview-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+
+    /* Notify form */
+    .notify-form {
+      width: 100%;
+      display: flex;
+      gap: 0;
+      max-width: 380px;
+    }
+
+    .notify-input {
+      flex: 1;
+      padding: 13px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-right: none;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 13px;
+      outline: none;
+    }
+
+    .notify-input::placeholder { color: rgba(255,255,255,0.35); }
+    .notify-input:focus { border-color: var(--rose); }
+
+    .notify-btn {
+      padding: 13px 20px;
+      background: var(--rose);
+      border: 1px solid var(--rose);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .notify-btn:hover { background: var(--rose-light); }
+
+    /* ============================
+       ③ RAPPELS ISLAMIQUES
+    ============================= */
+    #rappels {
+      padding: 120px 40px;
+      background: var(--cream);
+    }
+
+    .rappels-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .rappels-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .rappels-header p {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Quote principale */
+    .rappel-featured {
+      background: var(--brown);
+      padding: 72px 80px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 60px;
+      overflow: hidden;
+    }
+
+    /* Motif géométrique */
+    .rappel-featured::before {
+      content: '◇';
+      position: absolute;
+      font-size: 280px;
+      color: rgba(200,147,138,0.04);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .rappel-arabic {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--rose-light);
+      display: block;
+      margin-bottom: 28px;
+      letter-spacing: 2px;
+      direction: rtl;
+    }
+
+    .rappel-quote {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 300;
+      color: var(--white);
+      font-style: italic;
+      line-height: 1.45;
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+
+    .rappel-source {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .rappel-source span { color: var(--rose); }
+
+    /* Coming soon — rappels */
+    .rappels-coming {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .rappel-card {
+      background: var(--white);
+      padding: 36px 32px;
+      border: 1px solid var(--cream-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rappel-card:hover {
+      border-color: var(--rose-light);
+      transform: translateY(-4px);
+    }
+
+    .rappel-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--rose);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s;
+    }
+
+    .rappel-card:hover::before { transform: scaleY(1); }
+
+    .rappel-card-icon { font-size: 32px; }
+
+    .rappel-card-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--brown);
+    }
+
+    .rappel-card-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.7;
+    }
+
+    .rappel-card-status {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--rose-pale);
+      border: 1px solid var(--rose-light);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rose);
+      align-self: flex-start;
+    }
+
+    /* Coming soon centered message */
+    .rappels-soon {
+      text-align: center;
+      padding: 60px;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .rappels-soon-icon { font-size: 48px; display: block; margin-bottom: 24px; }
+
+    .rappels-soon-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+
+    .rappels-soon-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    /* ============================
+       NEWSLETTER — version lifestyle
+    ============================= */
+    .newsletter {
+      background: var(--rose-pale);
+      padding: 90px 40px;
+      text-align: center;
+    }
+
+    .newsletter-inner { max-width: 560px; margin: 0 auto; }
+
+    .newsletter-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 300;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+
+    .newsletter-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .newsletter-form { display: flex; max-width: 440px; margin: 0 auto; }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid var(--rose-light);
+      border-right: none;
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--brown);
+      outline: none;
+    }
+
+    .newsletter-input::placeholder { color: var(--mauve-light); }
+    .newsletter-input:focus { border-color: var(--rose); }
+
+    .newsletter-btn {
+      padding: 16px 28px;
+      background: var(--brown);
+      color: var(--white);
+      border: 1px solid var(--brown);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover { background: var(--rose); border-color: var(--rose); }
+
+    .newsletter-legal {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--mauve);
+    }
+
+    /* ============================
+       FOOTER
+    ============================= */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.6);
+      padding: 80px 40px 40px;
+    }
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 3px;
+      text-transform: lowercase;
+      margin-bottom: 20px;
+    }
+    .footer-logo span { color: var(--rose); }
+    .footer-brand-text { font-size: 13px; font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .social-link {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--rose); color: var(--rose); }
+    .footer-col-title {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; font-weight: 300; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--rose); }
+    .footer-bottom {
+      max-width: 1300px; margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between;
+      font-size: 12px;
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================= */
+    @media (max-width: 1024px) {
+      .podcast-intro { grid-template-columns: 1fr; gap: 50px; }
+      .podcast-cover { height: 380px; }
+      .coaching-grid { grid-template-columns: 1fr; gap: 60px; }
+      .rappels-coming { grid-template-columns: 1fr; }
+      .episodes-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      #podcast, #coaching, #rappels { padding: 80px 20px; }
+      .hero-content { padding: 0 30px; }
+      .hero-pillars { flex-direction: column; gap: 16px; }
+      .section-nav-btn { padding: 16px 20px; font-size: 10px; }
+      .rappel-featured { padding: 48px 24px; }
+      .coaching-preview { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid var(--rose-light); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    ✨ Livraison gratuite dès 50€ d'achat — Pour toi, sœur
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">hij<span>shop</span></a>
+      <ul class="nav-links">
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="boutique.html">Sport</a></li>
+        <li><a href="lifestyle.html" class="active">Lifestyle</a></li>
+        <li><a href="notre-histoire.html">Notre Histoire</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="compte.html">Compte</a>
+        <a href="panier.html">Panier <span class="cart-count">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===========================
+       HERO
+       Image: images/lifestyle-hero.jpg
+       → Grande photo ambiance lifestyle, sereine
+  ============================ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <!-- Ornement SVG géométrique arabe -->
+    <svg class="hero-ornament" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="white" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="50" stroke="white" stroke-width="0.5"/>
+      <polygon points="100,10 190,100 100,190 10,100" stroke="white" stroke-width="0.5" fill="none"/>
+      <polygon points="100,30 170,100 100,170 30,100" stroke="white" stroke-width="0.5" fill="none"/>
+      <line x1="100" y1="10" x2="100" y2="190" stroke="white" stroke-width="0.3"/>
+      <line x1="10" y1="100" x2="190" y2="100" stroke="white" stroke-width="0.3"/>
+    </svg>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Bien plus qu'une boutique</span>
+      <h1 class="hero-title">
+        Le Lifestyle<br>
+        <em>Hub</em>
+      </h1>
+      <p class="hero-subtitle">
+        Contenu exclusif pensé pour la femme musulmane moderne : podcast sur la vie conjugale, coaching fitness halal et rappels spirituels quotidiens.
+      </p>
+      <div class="hero-pillars">
+        <a href="#podcast" class="hero-pillar">
+          <div class="hero-pillar-icon">🎙️</div>
+          <span>Podcast</span>
+        </a>
+        <a href="#coaching" class="hero-pillar">
+          <div class="hero-pillar-icon">💪</div>
+          <span>Coaching</span>
+        </a>
+        <a href="#rappels" class="hero-pillar">
+          <div class="hero-pillar-icon">🤍</div>
+          <span>Rappels</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION NAV (sticky) -->
+  <nav class="section-nav">
+    <div class="section-nav-inner">
+      <button class="section-nav-btn active" onclick="scrollTo('podcast', this)">
+        <span class="nav-icon">🎙️</span> Podcast
+      </button>
+      <button class="section-nav-btn" onclick="scrollTo('coaching', this)">
+        <span class="nav-icon">💪</span> Coaching Sport
+      </button>
+      <button class="section-nav-btn" onclick="scrollTo('rappels', this)">
+        <span class="nav-icon">🤍</span> Rappels Islamiques
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================================
+         ① PODCAST
+    ================================= -->
+    <section id="podcast">
+      <div style="max-width:1300px; margin:0 auto; padding:120px 40px;">
+
+        <!-- Intro -->
+        <div class="podcast-intro">
+
+          <!-- Cover image
+               Fichier: images/podcast-cover.jpg -->
+          <div class="podcast-cover reveal">
+            <div class="podcast-cover-img"></div>
+            <div class="podcast-badge">
+              <span class="podcast-badge-icon">🎙️</span>
+              <span class="podcast-badge-text">Nouveau épisode</span>
+            </div>
+          </div>
+
+          <!-- Texte -->
+          <div class="podcast-text reveal reveal-delay-1">
+            <span class="section-label">Le Podcast hijshop</span>
+            <h2 class="podcast-title">Parlons vrai,<br><em>entre sœurs</em></h2>
+
+            <p class="podcast-desc">
+              Mariage, relations, foi au quotidien — ce podcast est ton espace safe pour explorer toutes les dimensions de la vie en Islam. Témoignages authentiques, conseils d'expertes et rappels spirituels pour t'aider à construire la vie que tu mérites.
+            </p>
+
+            <div class="podcast-themes">
+              <span class="theme-tag">Mariage</span>
+              <span class="theme-tag">Relations</span>
+              <span class="theme-tag">Foi</span>
+              <span class="theme-tag">Développement personnel</span>
+              <span class="theme-tag">Témoignages</span>
+              <span class="theme-tag">Spiritualité</span>
+            </div>
+
+            <div class="podcast-stats">
+              <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Épisodes à venir</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Chaîne YouTube</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Gratuit</span>
+              </div>
+            </div>
+
+            <div class="podcast-ctas">
+              <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="btn btn-youtube">
+                ▶ S'abonner sur YouTube
+              </a>
+              <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="btn btn-outline-dark">
+                Voir les épisodes
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Épisodes -->
+        <div class="episodes-header reveal">
+          <div>
+            <span class="section-label">Nos épisodes</span>
+            <h3 class="section-title" style="font-size:clamp(32px,4vw,50px)">Les derniers épisodes</h3>
+          </div>
+          <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="btn btn-outline-dark">
+            Voir tout →
+          </a>
+        </div>
+
+        <!--
+          Images épisodes:
+          images/episode-1.jpg → thème mariage
+          images/episode-2.jpg → thème foi
+          images/episode-3.jpg → thème relations
+          images/episode-4.jpg → thème développement perso
+        -->
+        <div class="episodes-grid">
+
+          <div class="episode-card reveal">
+            <div class="episode-thumb">
+              <div class="episode-play">
+                <div class="play-icon">▶</div>
+              </div>
+            </div>
+            <div class="episode-info">
+              <span class="episode-number">Épisode 01</span>
+              <h4 class="episode-title">Comment trouver un mari pratiquant aujourd'hui ?</h4>
+              <p class="episode-desc">Les vraies difficultés de la rencontre halal en 2025, les pièges à éviter et les conseils qui changent tout.</p>
+              <div class="episode-meta">
+                <span>45 min</span>
+                <span>Mariage</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="episode-card reveal reveal-delay-1">
+            <div class="episode-thumb">
+              <div class="episode-play">
+                <div class="play-icon">▶</div>
+              </div>
+            </div>
+            <div class="episode-info">
+              <span class="episode-number">Épisode 02</span>
+              <h4 class="episode-title">Rester pratiquante dans un monde qui ne l'est pas</h4>
+              <p class="episode-desc">Témoignage bouleversant d'une sœur qui a failli abandonner le hijab. Ce qui l'a sauvée.</p>
+              <div class="episode-meta">
+                <span>52 min</span>
+                <span>Foi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="episode-card reveal reveal-delay-1">
+            <div class="episode-thumb">
+              <div class="episode-play">
+                <div class="play-icon">▶</div>
+              </div>
+            </div>
+            <div class="episode-info">
+              <span class="episode-number">Épisode 03</span>
+              <h4 class="episode-title">La communication dans le couple musulman</h4>
+              <p class="episode-desc">Comment parler à son mari sans conflit ? Une psychologue répond sans tabou.</p>
+              <div class="episode-meta">
+                <span>38 min</span>
+                <span>Relations</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="episode-card reveal reveal-delay-2">
+            <div class="episode-thumb">
+              <div class="episode-play">
+                <div class="play-icon">▶</div>
+              </div>
+            </div>
+            <div class="episode-info">
+              <span class="episode-number">Épisode 04</span>
+              <h4 class="episode-title">S'aimer soi-même en Islam : c'est permis ?</h4>
+              <p class="episode-desc">La self-love à travers le prisme islamique. On démêle le vrai du faux.</p>
+              <div class="episode-meta">
+                <span>41 min</span>
+                <span>Développement perso</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         ② COACHING SPORT & NUTRITION
+    ================================= -->
+    <section id="coaching">
+      <div class="coaching-inner">
+        <div class="coaching-grid">
+
+          <!-- Texte -->
+          <div class="coaching-text reveal">
+            <span class="section-label">Coaching Sport & Nutrition</span>
+            <h2 class="coaching-title">
+              Prends soin de ton corps,<br>
+              <em>respecte tes principes</em>
+            </h2>
+
+            <p class="coaching-desc">
+              Programmes d'entraînement adaptés à la femme voilée, conseils nutrition et motivation pour atteindre tes objectifs. Parce qu'un corps sain abrite une âme sereine.
+            </p>
+
+            <ul class="coaching-features">
+              <li>
+                <span class="feature-dot"></span>
+                Vidéos d'entraînement adaptées (à domicile et en salle)
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                Plans nutrition halal et équilibrés
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                Programmes progressifs pour tous les niveaux
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                Tenues sportives modestes recommandées pour chaque séance
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                Communauté de sœurs pour rester motivées ensemble
+              </li>
+            </ul>
+
+            <div class="coaching-preview">
+              <div class="preview-card">
+                <span class="preview-icon">🏃‍♀️</span>
+                <span class="preview-title">Cardio<br>Modeste</span>
+              </div>
+              <div class="preview-card">
+                <span class="preview-icon">🧘‍♀️</span>
+                <span class="preview-title">Yoga<br>& Mobilité</span>
+              </div>
+              <div class="preview-card">
+                <span class="preview-icon">💪</span>
+                <span class="preview-title">Musculation<br>Adaptée</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coming soon card -->
+          <div class="coming-soon-card reveal reveal-delay-1">
+            <div class="coming-soon-icon">💪</div>
+
+            <h3 class="coming-soon-title">Bientôt disponible</h3>
+
+            <p class="coming-soon-text">
+              Nos vidéos de coaching sport et nos conseils nutrition sont en cours de préparation. En attendant, équipe-toi dans notre boutique !
+            </p>
+
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span>Progression</span>
+                <span>65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+
+            <p style="font-size:13px; color:rgba(255,255,255,0.45); font-weight:300;">
+              Sois notifiée en avant-première
+            </p>
+
+            <form class="notify-form" onsubmit="handleNotify(event)">
+              <input type="email" class="notify-input" placeholder="ton@email.com" required />
+              <button type="submit" class="notify-btn">Me notifier</button>
+            </form>
+
+            <a href="boutique.html" class="btn btn-outline-dark" style="border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.7)">
+              Voir le sportswear →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         ③ RAPPELS ISLAMIQUES
+    ================================= -->
+    <section id="rappels">
+      <div class="rappels-inner">
+
+        <div class="rappels-header reveal">
+          <span class="section-label">Rappels Islamiques</span>
+          <h2 class="section-title">Nourris ton<br><em style="font-style:italic">cœur</em> chaque jour</h2>
+          <p>Citations du Coran, hadiths authentiques et conseils spirituels pour illuminer ton parcours quotidien.</p>
+        </div>
+
+        <!-- Rappel du jour (statique, à changer manuellement) -->
+        <div class="rappel-featured reveal">
+          <span class="rappel-arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+          <blockquote class="rappel-quote">
+            "Assurément, avec la difficulté vient la facilité."
+          </blockquote>
+          <p class="rappel-source">Sourate Al-Inshirah — <span>Verset 6</span></p>
+        </div>
+
+        <!-- Cards coming soon -->
+        <div class="rappels-coming reveal">
+          <div class="rappel-card">
+            <span class="rappel-card-icon">📖</span>
+            <h3 class="rappel-card-title">Versets du Coran</h3>
+            <p class="rappel-card-desc">
+              Un verset chaque jour, avec sa traduction et son contexte pour approfondir ta compréhension du Coran.
+            </p>
+            <span class="rappel-card-status">Bientôt disponible</span>
+          </div>
+
+          <div class="rappel-card">
+            <span class="rappel-card-icon">🌙</span>
+            <h3 class="rappel-card-title">Hadiths Authentiques</h3>
+            <p class="rappel-card-desc">
+              Sagesses du Prophète ﷺ soigneusement sélectionnées pour guider ta vie au quotidien.
+            </p>
+            <span class="rappel-card-status">Bientôt disponible</span>
+          </div>
+
+          <div class="rappel-card">
+            <span class="rappel-card-icon">🤲</span>
+            <h3 class="rappel-card-title">Douas & Invocations</h3>
+            <p class="rappel-card-desc">
+              Les invocations du matin et du soir, avant les repas, lors des épreuves et des joies.
+            </p>
+            <span class="rappel-card-status">Bientôt disponible</span>
+          </div>
+
+          <div class="rappel-card">
+            <span class="rappel-card-icon">💡</span>
+            <h3 class="rappel-card-title">Conseils Spirituels</h3>
+            <p class="rappel-card-desc">
+              Articles et réflexions pour renforcer ta foi, gérer les épreuves et cultiver la sérénité.
+            </p>
+            <span class="rappel-card-status">Bientôt disponible</span>
+          </div>
+        </div>
+
+        <!-- Message principal coming soon -->
+        <div class="rappels-soon reveal">
+          <span class="rappels-soon-icon">🤍</span>
+          <h3 class="rappels-soon-title">Nos rappels arrivent très bientôt</h3>
+          <p class="rappels-soon-text">
+            Nous préparons du contenu spirituel enrichissant pour toi. Reviens nous voir régulièrement — et en attendant, explore notre podcast et notre boutique.
+          </p>
+          <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+            <a href="#podcast" class="btn btn-primary">Écouter le podcast</a>
+            <a href="boutique.html" class="btn btn-outline-dark">Découvrir la boutique</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="newsletter-inner reveal">
+        <span class="section-label">Reste connectée</span>
+        <h2 class="newsletter-title">Chaque vendredi,<br>dans ta boîte mail</h2>
+        <p class="newsletter-text">
+          Un reminder spirituel, un conseil fitness et nos dernières nouveautés mode. Rien de superflu, que l'essentiel pour ta semaine.
+        </p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" class="newsletter-input" placeholder="ton@email.com" required />
+          <button type="submit" class="newsletter-btn">S'inscrire</button>
+        </form>
+        <p class="newsletter-legal">Pas de spam. Désabonnement en un clic.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">hij<span>shop</span></div>
+        <p class="footer-brand-text">La destination lifestyle des femmes musulmanes. Mode pudique, sportswear halal et contenus inspirants.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">TK</a>
+          <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="social-link">YT</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Boutique</h4>
+        <ul class="footer-links">
+          <li><a href="boutique.html">Hijabs</a></li>
+          <li><a href="boutique.html">Sportswear</a></li>
+          <li><a href="boutique.html">Accessoires</a></li>
+          <li><a href="boutique.html">Packs & Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Lifestyle</h4>
+        <ul class="footer-links">
+          <li><a href="#podcast">Podcast</a></li>
+          <li><a href="#coaching">Coaching Sport</a></li>
+          <li><a href="#rappels">Rappels Islamiques</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Aide</h4>
+        <ul class="footer-links">
+          <li><a href="notre-histoire.html">Notre Histoire</a></li>
+          <li><a href="livraison.html">Livraison & Retours</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 hijshop — Mode musulmane avec fierté</p>
+      <div style="display:flex;gap:24px;">
+        <a href="mentions-legales.html" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Mentions légales</a>
+        <a href="#" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========== SCROLL REVEAL ==========
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ========== SECTION NAV — active on scroll ==========
+    const sections = ['podcast', 'coaching', 'rappels'];
+    const navBtns = document.querySelectorAll('.section-nav-btn');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 160) current = id;
+      });
+      navBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(current)) btn.classList.add('active');
+      });
+    });
+
+    // ========== SMOOTH SCROLL ==========
+    function scrollTo(id, btn) {
+      navBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const el = document.getElementById(id);
+      if (el) {
+        const offset = el.offsetTop - 130;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    }
+
+    // ========== NEWSLETTER ==========
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Inscrite !';
+      btn.style.background = 'var(--rose)';
+      input.value = '';
+      setTimeout(() => { btn.textContent = "S'inscrire"; btn.style.background = ''; }, 3000);
+    }
+
+    // ========== NOTIFY COACHING ==========
+    function handleNotify(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Noté !';
+      input.value = '';
+      setTimeout(() => { btn.textContent = 'Me notifier'; }, 3000);
+    }
+
+    // ========== EPISODE CLICK → YouTube ==========
+    document.querySelectorAll('.episode-card').forEach(card => {
+      card.addEventListener('click', () => {
+        window.open('https://www.youtube.com/@hijshop-podcast', '_blank');
+      });
+    });
+  </script>
+
+</body>
+</html>

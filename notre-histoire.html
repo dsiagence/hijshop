@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notre Histoire — hijshop</title>
+  <meta name="description" content="Découvrez l'histoire de hijshop : née d'une frustration, construite avec amour pour toutes les sœurs qui cherchaient mode, foi et lifestyle au même endroit." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --rose:        #C8938A;
+      --rose-light:  #E8C5BF;
+      --rose-pale:   #F5EBE8;
+      --mauve:       #B08A9A;
+      --mauve-light: #D6BEC8;
+      --cream:       #FAF6F3;
+      --cream-dark:  #F0E8E3;
+      --brown:       #3D2420;
+      --brown-mid:   #7A4F47;
+      --white:       #FFFFFF;
+      --black:       #1A1008;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       ANNOUNCEMENT + HEADER
+    ============================= */
+    .announcement {
+      background: var(--brown);
+      color: var(--rose-light);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 246, 243, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brown);
+      text-transform: lowercase;
+    }
+    .nav-logo span { color: var(--rose); }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--rose);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--rose); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    .nav-icons { display: flex; gap: 20px; align-items: center; }
+    .nav-icons a { font-size: 13px; letter-spacing: 1px; color: var(--brown-mid); transition: color 0.2s; }
+    .nav-icons a:hover { color: var(--rose); }
+    .cart-count {
+      background: var(--rose); color: var(--white);
+      font-size: 10px; width: 18px; height: 18px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-left: 4px;
+    }
+
+    /* ============================
+       HERO CINÉMATIQUE
+       Image: images/histoire-hero.jpg
+       → Photo fondatrice ou ambiance très soignée
+          Format recommandé: 1920x1080, orienté gauche
+    ============================= */
+    .hero {
+      height: 100vh;
+      min-height: 680px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(26,16,8,0.92) 0%, rgba(26,16,8,0.4) 40%, rgba(26,16,8,0.1) 100%),
+        url('images/histoire-hero.jpg') center / cover no-repeat;
+      animation: heroZoom 16s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.07); }
+      to   { transform: scale(1.00); }
+    }
+
+    /* Ligne décorative verticale */
+    .hero-line {
+      position: absolute;
+      left: 80px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(200,147,138,0.4) 30%, rgba(200,147,138,0.4) 70%, transparent 100%);
+      animation: lineReveal 1.5s ease-out 0.5s both;
+    }
+
+    @keyframes lineReveal {
+      from { scaleY: 0; opacity: 0; }
+      to   { scaleY: 1; opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 80px 90px;
+      animation: heroFadeUp 1.2s ease-out 0.3s both;
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 9vw, 110px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 28px;
+      max-width: 900px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose-light);
+    }
+
+    .hero-tagline {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 2px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      right: 60px;
+      bottom: 60px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: heroFadeUp 1s ease-out 1.8s both;
+    }
+
+    .hero-scroll span {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ============================
+       SHARED
+    ============================= */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+
+    /* ============================
+       INTRO — LA FRUSTRATION
+    ============================= */
+    .intro {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 120px 40px;
+      text-align: center;
+    }
+
+    .intro-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.15;
+      margin-bottom: 36px;
+    }
+
+    .intro-title em { font-style: italic; color: var(--rose); }
+
+    .intro-text {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 2.0;
+      margin-bottom: 20px;
+    }
+
+    /* Séparateur ornemental */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      margin: 60px auto;
+    }
+
+    .ornament-divider::before,
+    .ornament-divider::after {
+      content: '';
+      flex: 1;
+      max-width: 120px;
+      height: 1px;
+      background: var(--rose-light);
+    }
+
+    .ornament-diamond {
+      width: 8px; height: 8px;
+      background: var(--rose);
+      transform: rotate(45deg);
+    }
+
+    /* ============================
+       HISTOIRE EN IMAGES
+       Section alternée texte / photo
+
+       images/histoire-1.jpg → ambiance "avant hijshop", chercher des vêtements
+       images/histoire-2.jpg → la création, l'idée, le bureau/atelier
+       images/histoire-3.jpg → la communauté, les sœurs ensemble
+    ============================= */
+    .timeline {
+      padding: 0 40px 120px;
+    }
+
+    .timeline-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 140px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .timeline-item.reverse { direction: rtl; }
+    .timeline-item.reverse > * { direction: ltr; }
+
+    /* Image block */
+    .tl-image-wrap {
+      position: relative;
+    }
+
+    .tl-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .tl-item-1 .tl-image {
+      background-image: url('images/histoire-1.jpg'),
+        linear-gradient(135deg, var(--cream-dark), var(--rose-pale));
+    }
+
+    .tl-item-2 .tl-image {
+      background-image: url('images/histoire-2.jpg'),
+        linear-gradient(135deg, var(--rose-pale), var(--mauve-light));
+    }
+
+    .tl-item-3 .tl-image {
+      background-image: url('images/histoire-3.jpg'),
+        linear-gradient(135deg, var(--mauve-light), var(--cream-dark));
+    }
+
+    /* Cadre décalé */
+    .tl-image-wrap::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border: 1px solid var(--rose-light);
+    }
+
+    .timeline-item:not(.reverse) .tl-image-wrap::after {
+      bottom: -24px;
+      right: -24px;
+      width: 60%;
+      height: 55%;
+    }
+
+    .timeline-item.reverse .tl-image-wrap::after {
+      bottom: -24px;
+      left: -24px;
+      width: 60%;
+      height: 55%;
+    }
+
+    /* Numéro flottant */
+    .tl-number {
+      position: absolute;
+      top: -24px;
+      font-family: var(--font-display);
+      font-size: 120px;
+      font-weight: 300;
+      color: var(--rose-pale);
+      line-height: 1;
+      z-index: -1;
+      user-select: none;
+    }
+
+    .timeline-item:not(.reverse) .tl-number { left: -20px; }
+    .timeline-item.reverse .tl-number { right: -20px; }
+
+    /* Texte block */
+    .tl-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .tl-chapter {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--mauve);
+    }
+
+    .tl-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.15;
+    }
+
+    .tl-title em { font-style: italic; color: var(--rose); }
+
+    .tl-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.9;
+    }
+
+    .tl-quote {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1.5;
+      border-left: 2px solid var(--rose);
+      padding-left: 22px;
+    }
+
+    /* ============================
+       VALEURS
+    ============================= */
+    .valeurs {
+      background: var(--brown);
+      padding: 120px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .valeurs::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,147,138,0.1);
+    }
+
+    .valeurs::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -60px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,147,138,0.07);
+    }
+
+    .valeurs-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .valeurs-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .valeurs-header .section-label { color: var(--rose-light); }
+
+    .valeurs-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 62px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .valeurs-header h2 em { font-style: italic; color: var(--rose-light); }
+
+    .valeurs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .valeur-card {
+      background: rgba(255,255,255,0.04);
+      padding: 48px 36px;
+      border: 1px solid rgba(200,147,138,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: background 0.4s, border-color 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .valeur-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--rose);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .valeur-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(200,147,138,0.2);
+    }
+
+    .valeur-card:hover::before { transform: scaleX(1); }
+
+    .valeur-icon {
+      font-size: 36px;
+      display: block;
+    }
+
+    .valeur-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .valeur-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    /* ============================
+       ENGAGEMENT — NOTRE PROMESSE
+    ============================= */
+    .promesse {
+      padding: 120px 40px;
+      background: var(--white);
+    }
+
+    .promesse-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .promesse-content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .promesse-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.1;
+    }
+
+    .promesse-title em { font-style: italic; color: var(--rose); }
+
+    .promesse-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.9;
+    }
+
+    .promesse-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .promesse-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--brown-mid);
+      line-height: 1.6;
+    }
+
+    .promesse-check {
+      width: 22px; height: 22px;
+      background: var(--rose-pale);
+      border: 1px solid var(--rose-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--rose);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Image promesse
+       Fichier: images/histoire-promesse.jpg
+       → Photo soignée, produits ou fondatrice avec tenues */
+    .promesse-image-wrap {
+      position: relative;
+      height: 600px;
+    }
+
+    .promesse-image {
+      width: 85%;
+      height: 100%;
+      margin-left: auto;
+      background: url('images/histoire-promesse.jpg') center / cover no-repeat,
+                  linear-gradient(135deg, var(--rose-pale), var(--cream-dark));
+    }
+
+    .promesse-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 50%;
+      height: 60%;
+      border: 1px solid var(--rose-light);
+      z-index: 0;
+    }
+
+    /* Stat flottante */
+    .promesse-stat {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      background: var(--brown);
+      color: var(--white);
+      padding: 28px 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    .promesse-stat-number {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--rose-light);
+      display: block;
+      line-height: 1;
+    }
+
+    .promesse-stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ============================
+       CHIFFRES CLÉS
+    ============================= */
+    .chiffres {
+      background: var(--rose-pale);
+      padding: 80px 40px;
+    }
+
+    .chiffres-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .chiffre-item {}
+
+    .chiffre-number {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .chiffre-number span { color: var(--rose); }
+
+    .chiffre-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+    }
+
+    /* ============================
+       CTA FINAL
+    ============================= */
+    .cta-final {
+      padding: 120px 40px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .cta-final-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta-final-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 62px);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.15;
+    }
+
+    .cta-final-title em { font-style: italic; color: var(--rose); }
+
+    .cta-final-text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.8;
+    }
+
+    .cta-final-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary { background: var(--brown); color: var(--white); }
+    .btn-primary:hover { background: var(--brown-mid); }
+    .btn-outline-dark { background: transparent; color: var(--brown); border: 1px solid var(--brown); }
+    .btn-outline-dark:hover { background: var(--brown); color: var(--white); }
+
+    /* ============================
+       FOOTER
+    ============================= */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.6);
+      padding: 80px 40px 40px;
+    }
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 3px;
+      text-transform: lowercase;
+      margin-bottom: 20px;
+    }
+    .footer-logo span { color: var(--rose); }
+    .footer-brand-text { font-size: 13px; font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .social-link {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--rose); color: var(--rose); }
+    .footer-col-title {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--white); margin-bottom: 24px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; font-weight: 300; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--rose); }
+    .footer-bottom {
+      max-width: 1300px; margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between;
+      font-size: 12px;
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================= */
+    @media (max-width: 1024px) {
+      .timeline-item,
+      .timeline-item.reverse { grid-template-columns: 1fr; direction: ltr; gap: 48px; }
+      .tl-image { aspect-ratio: 16/9; }
+      .tl-image-wrap::after { display: none; }
+      .valeurs-grid { grid-template-columns: 1fr 1fr; }
+      .promesse-inner { grid-template-columns: 1fr; gap: 60px; }
+      .promesse-image-wrap { height: 400px; }
+      .chiffres-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 0 24px 60px; }
+      .hero-line { left: 24px; }
+      .intro { padding: 80px 24px; }
+      .timeline { padding: 0 24px 80px; }
+      .timeline-inner { gap: 80px; }
+      .valeurs-grid { grid-template-columns: 1fr; }
+      .valeurs { padding: 80px 24px; }
+      .promesse { padding: 80px 24px; }
+      .chiffres { padding: 60px 24px; }
+      .chiffres-inner { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .cta-final { padding: 80px 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    ✨ Livraison gratuite dès 50€ d'achat — Pour toi, sœur
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">hij<span>shop</span></a>
+      <ul class="nav-links">
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="boutique.html">Sport</a></li>
+        <li><a href="lifestyle.html">Lifestyle</a></li>
+        <li><a href="notre-histoire.html" class="active">Notre Histoire</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="compte.html">Compte</a>
+        <a href="panier.html">Panier <span class="cart-count">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================================
+         HERO
+         Image: images/histoire-hero.jpg
+         → Photo fondatrice ou ambiance très soignée,
+           lumière douce, orientée bas de cadre
+    ================================= -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-line"></div>
+
+      <div class="hero-content">
+        <span class="hero-eyebrow">Notre Histoire</span>
+        <h1 class="hero-title">
+          Comment Tout<br>
+          a <em>Commencé</em>
+        </h1>
+        <p class="hero-tagline">
+          Née d'une frustration. Construite avec amour.<br>
+          Pour chaque sœur qui cherchait.
+        </p>
+      </div>
+
+      <div class="hero-scroll">
+        <span>Découvrir</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ================================
+         INTRO
+    ================================= -->
+    <section class="intro">
+      <div class="reveal">
+        <span class="section-label">Le point de départ</span>
+      </div>
+
+      <h2 class="intro-title reveal">
+        Une frustration<br>
+        que tu connais<br>
+        <em>peut-être</em>
+      </h2>
+
+      <p class="intro-text reveal">
+        Chercher désespérément des vêtements beaux, modernes et vraiment conformes à nos principes islamiques. Ne pas se retrouver dans la mode actuelle — souvent illicite ou inadaptée. Sentir que personne ne nous comprenait vraiment.
+      </p>
+
+      <div class="ornament-divider reveal">
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="opacity:0.4"></div>
+        <div class="ornament-diamond" style="opacity:0.2"></div>
+      </div>
+
+      <p class="intro-text reveal" style="font-family:var(--font-display); font-size:clamp(22px,3vw,32px); font-style:italic; color:var(--brown); font-weight:300; line-height:1.6;">
+        "En tant que sœur voilée, je ne me retrouvais pas dans la mode actuelle. Alors j'ai créé la destination que je cherchais."
+      </p>
+    </section>
+
+    <!-- ================================
+         TIMELINE — L'HISTOIRE EN 3 CHAPITRES
+         Images:
+           images/histoire-1.jpg → chercher des vêtements, shopping frustrant
+           images/histoire-2.jpg → la création / l'idée / le début
+           images/histoire-3.jpg → la communauté, les sœurs ensemble
+    ================================= -->
+    <section class="timeline">
+      <div class="timeline-inner">
+
+        <!-- CHAPITRE 1 -->
+        <div class="timeline-item tl-item-1">
+          <div class="tl-image-wrap reveal-left">
+            <span class="tl-number">01</span>
+            <div class="tl-image"></div>
+          </div>
+
+          <div class="tl-text reveal-right">
+            <span class="tl-chapter">Chapitre 01 · Le problème</span>
+            <h2 class="tl-title">
+              Ce manque<br>
+              qui <em>n'existait nulle part</em>
+            </h2>
+            <p class="tl-body">
+              Pendant des années, la même histoire se répétait : des vêtements trop courts, des tissus trop transparents, des coupes qui ne respectent pas la pudeur islamique. Ou alors des vêtements pudiques mais tellement démodés qu'on se sentait invisible plutôt qu'élégante.
+            </p>
+            <blockquote class="tl-quote">
+              "Je voulais être belle, moderne, et respecter ma foi. Pourquoi fallait-il choisir ?"
+            </blockquote>
+            <p class="tl-body">
+              Cette question était celle de milliers de sœurs. Et personne n'y répondait vraiment. Pas une seule marque ne proposait une mode pudique qui soit aussi inspirante, accessible et complète.
+            </p>
+          </div>
+        </div>
+
+        <!-- CHAPITRE 2 -->
+        <div class="timeline-item tl-item-2 reverse">
+          <div class="tl-image-wrap reveal-right">
+            <span class="tl-number">02</span>
+            <div class="tl-image"></div>
+          </div>
+
+          <div class="tl-text reveal-left">
+            <span class="tl-chapter">Chapitre 02 · La décision</span>
+            <h2 class="tl-title">
+              Créer ce qui<br>
+              <em>n'existait pas</em>
+            </h2>
+            <p class="tl-body">
+              La décision s'est imposée d'elle-même : si personne ne crée la boutique dont on a besoin, on la crée nous-mêmes. hijshop est né de cet élan — non pas comme un simple site e-commerce, mais comme une véritable destination.
+            </p>
+            <p class="tl-body">
+              Parce qu'une femme musulmane moderne n'est pas qu'une consommatrice. Elle est active, spirituelle, sportive, épouse, sœur, professionnelle. Elle mérite une marque qui comprend toute sa complexité et l'accompagne dans chacune de ses dimensions.
+            </p>
+            <blockquote class="tl-quote">
+              "Plus qu'une boutique — une communauté où mode pudique, fitness et spiritualité se rencontrent."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- CHAPITRE 3 -->
+        <div class="timeline-item tl-item-3">
+          <div class="tl-image-wrap reveal-left">
+            <span class="tl-number">03</span>
+            <div class="tl-image"></div>
+          </div>
+
+          <div class="tl-text reveal-right">
+            <span class="tl-chapter">Chapitre 03 · La communauté</span>
+            <h2 class="tl-title">
+              Pour nous,<br>
+              <em>par nous</em>
+            </h2>
+            <p class="tl-body">
+              hijshop ne s'adresse pas aux femmes musulmanes de l'extérieur. Nous sommes ces femmes. Nous portons le hijab, nous pratiquons le sport modestement, nous cherchons la foi au quotidien, nous naviguons les mêmes défis.
+            </p>
+            <p class="tl-body">
+              C'est pourquoi chaque produit est sélectionné avec soin, chaque contenu est créé avec sincérité. Pas de marketing vide. Pas de promesses creuses. Juste une équipe de sœurs qui veut te voir briller — dans ta foi, ta forme et ton style.
+            </p>
+            <blockquote class="tl-quote">
+              "Bienvenue dans ta nouvelle maison."
+            </blockquote>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================
+         VALEURS
+    ================================= -->
+    <section class="valeurs">
+      <div class="valeurs-inner">
+
+        <div class="valeurs-header reveal">
+          <span class="section-label">Ce qui nous guide</span>
+          <h2>Foi &amp; <em>Principes</em></h2>
+        </div>
+
+        <div class="valeurs-grid">
+
+          <div class="valeur-card reveal">
+            <span class="valeur-icon">🕌</span>
+            <h3 class="valeur-title">Foi & Modestie</h3>
+            <p class="valeur-text">
+              Tous nos produits sont rigoureusement sélectionnés pour respecter les principes de modestie islamique. De la longueur des vêtements à l'opacité des tissus, rien n'est laissé au hasard. Ta foi n'est pas une contrainte, c'est ta force.
+            </p>
+          </div>
+
+          <div class="valeur-card reveal delay-1">
+            <span class="valeur-icon">✨</span>
+            <h3 class="valeur-title">Qualité Premium</h3>
+            <p class="valeur-text">
+              Nous nous engageons à te fournir des produits de qualité à des prix justes et accessibles. Chaque vêtement est sélectionné selon des critères stricts de durabilité et de confort. Ta confiance est notre plus belle récompense.
+            </p>
+          </div>
+
+          <div class="valeur-card reveal delay-2">
+            <span class="valeur-icon">💚</span>
+            <h3 class="valeur-title">Authenticité</h3>
+            <p class="valeur-text">
+              Nous sommes nous-mêmes des femmes pratiquantes qui comprennent l'importance de ces valeurs. Pas de greenwashing islamique — juste une équipe sincère qui vit ce qu'elle vend. Pour nous, par nous.
+            </p>
+          </div>
+
+          <div class="valeur-card reveal">
+            <span class="valeur-icon">🌿</span>
+            <h3 class="valeur-title">Lifestyle Complet</h3>
+            <p class="valeur-text">
+              hijshop va au-delà de la mode. Podcast, coaching fitness, rappels spirituels — nous accompagnons chaque dimension de ta vie. Parce que tu es une femme entière, et ta marque doit l'être aussi.
+            </p>
+          </div>
+
+          <div class="valeur-card reveal delay-1">
+            <span class="valeur-icon">💪</span>
+            <h3 class="valeur-title">Empowerment</h3>
+            <p class="valeur-text">
+              Le hijab n'est pas une limitation. C'est une identité puissante. Notre mission est de t'aider à l'assumer avec fierté, élégance et confiance — dans la salle de sport comme dans la rue.
+            </p>
+          </div>
+
+          <div class="valeur-card reveal delay-2">
+            <span class="valeur-icon">🤝</span>
+            <h3 class="valeur-title">Communauté</h3>
+            <p class="valeur-text">
+              Chaque cliente n'est pas un numéro de commande — elle est une sœur. Nous construisons une communauté où les femmes s'entraident, s'inspirent et grandissent ensemble. La oumma au quotidien.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         NOTRE PROMESSE
+         Image: images/histoire-promesse.jpg
+         → Photo produits ou fondatrice, lumière chaude
+    ================================= -->
+    <section class="promesse">
+      <div class="promesse-inner">
+
+        <div class="promesse-content reveal-left">
+          <span class="section-label">Notre Promesse</span>
+          <h2 class="promesse-title">
+            Notre <em>Engagement</em><br>
+            envers toi
+          </h2>
+
+          <p class="promesse-text">
+            Nous sommes en amélioration continue pour faire grandir hijshop. Ta confiance nous oblige à tenir nos promesses — chaque jour, pour chaque commande.
+          </p>
+
+          <ul class="promesse-items">
+            <li>
+              <span class="promesse-check">✓</span>
+              Produits 100% sélectionnés selon les critères de pudeur islamique
+            </li>
+            <li>
+              <span class="promesse-check">✓</span>
+              Qualité premium à des prix accessibles et justes
+            </li>
+            <li>
+              <span class="promesse-check">✓</span>
+              Livraison soignée avec attention personnalisée
+            </li>
+            <li>
+              <span class="promesse-check">✓</span>
+              Contenu lifestyle gratuit et authentique (podcast, coaching, rappels)
+            </li>
+            <li>
+              <span class="promesse-check">✓</span>
+              Service client humain et réactif — 7j/7, réponse sous 48h
+            </li>
+            <li>
+              <span class="promesse-check">✓</span>
+              Retours gratuits sous 30 jours, sans condition
+            </li>
+          </ul>
+        </div>
+
+        <div class="promesse-image-wrap reveal-right">
+          <div class="promesse-image"></div>
+          <div class="promesse-stat">
+            <span class="promesse-stat-number">100%</span>
+            <span class="promesse-stat-label">Pudeur islamique garantie</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================
+         CHIFFRES CLÉS
+    ================================= -->
+    <section class="chiffres">
+      <div class="chiffres-inner">
+        <div class="chiffre-item reveal">
+          <span class="chiffre-number">50<span>k+</span></span>
+          <span class="chiffre-label">Sœurs satisfaites</span>
+        </div>
+        <div class="chiffre-item reveal delay-1">
+          <span class="chiffre-number">100<span>%</span></span>
+          <span class="chiffre-label">Pudeur garantie</span>
+        </div>
+        <div class="chiffre-item reveal delay-2">
+          <span class="chiffre-number">30<span>j</span></span>
+          <span class="chiffre-label">Retours gratuits</span>
+        </div>
+        <div class="chiffre-item reveal delay-3">
+          <span class="chiffre-number">7<span>j/7</span></span>
+          <span class="chiffre-label">Support disponible</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         CTA FINAL
+    ================================= -->
+    <section class="cta-final">
+      <div class="cta-final-inner reveal">
+        <span class="section-label">Bienvenue dans ta maison</span>
+        <h2 class="cta-final-title">
+          Prête à rejoindre<br>
+          la communauté <em>hijshop</em> ?
+        </h2>
+        <p class="cta-final-text">
+          Découvre notre collection, écoute notre podcast, et rejoins des milliers de sœurs qui ont trouvé leur destination lifestyle.
+        </p>
+        <div class="cta-final-btns">
+          <a href="boutique.html" class="btn btn-primary">Découvrir la boutique</a>
+          <a href="lifestyle.html" class="btn btn-outline-dark">Explorer le lifestyle</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">hij<span>shop</span></div>
+        <p class="footer-brand-text">La destination lifestyle des femmes musulmanes. Mode pudique, sportswear halal et contenus inspirants.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">TK</a>
+          <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="social-link">YT</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Boutique</h4>
+        <ul class="footer-links">
+          <li><a href="boutique.html">Hijabs</a></li>
+          <li><a href="boutique.html">Sportswear</a></li>
+          <li><a href="boutique.html">Accessoires</a></li>
+          <li><a href="boutique.html">Packs & Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Lifestyle</h4>
+        <ul class="footer-links">
+          <li><a href="lifestyle.html">Podcast</a></li>
+          <li><a href="lifestyle.html">Coaching Sport</a></li>
+          <li><a href="lifestyle.html">Rappels Islamiques</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Aide</h4>
+        <ul class="footer-links">
+          <li><a href="notre-histoire.html">Notre Histoire</a></li>
+          <li><a href="livraison.html">Livraison & Retours</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 hijshop — Mode musulmane avec fierté</p>
+      <div style="display:flex;gap:24px;">
+        <a href="mentions-legales.html" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Mentions légales</a>
+        <a href="#" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========== SCROLL REVEAL ==========
+    const allReveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    allReveals.forEach(el => obs.observe(el));
+
+    // ========== COUNTER ANIMATION ==========
+    function animateCounter(el, target, suffix = '') {
+      let start = 0;
+      const duration = 1800;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(ease * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const raw = el.dataset.target;
+          if (raw) animateCounter(el.querySelector('.chiffre-number'), parseInt(raw), el.dataset.suffix || '');
+          counterObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.chiffre-item').forEach(el => counterObs.observe(el));
+  </script>
+
+</body>
+</html>
