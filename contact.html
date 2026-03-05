@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — hijshop</title>
+  <meta name="description" content="Une question, une sœur à rejoindre, un retour à signaler ? Notre équipe te répond sous 24-48h avec plaisir." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --rose:        #C8938A;
+      --rose-light:  #E8C5BF;
+      --rose-pale:   #F5EBE8;
+      --mauve:       #B08A9A;
+      --mauve-light: #D6BEC8;
+      --cream:       #FAF6F3;
+      --cream-dark:  #F0E8E3;
+      --brown:       #3D2420;
+      --brown-mid:   #7A4F47;
+      --white:       #FFFFFF;
+      --black:       #1A1008;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--brown); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       HEADER
+    ============================= */
+    .announcement {
+      background: var(--brown); color: var(--rose-light);
+      text-align: center; padding: 10px 20px;
+      font-size: 12px; letter-spacing: 1.5px;
+    }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,246,243,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    nav {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 40px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .nav-logo { font-family: var(--font-display); font-size: 28px; font-weight: 400; letter-spacing: 3px; color: var(--brown); text-transform: lowercase; }
+    .nav-logo span { color: var(--rose); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--rose); transition: width 0.3s; }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-icons { display: flex; gap: 20px; align-items: center; }
+    .nav-icons a { font-size: 13px; letter-spacing: 1px; color: var(--brown-mid); transition: color 0.2s; }
+    .nav-icons a:hover { color: var(--rose); }
+    .cart-count { background: var(--rose); color: var(--white); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: 4px; }
+
+    /* ============================
+       HERO — CONTACT
+       Image: images/contact-hero.jpg
+       → Photo ambiance douce, chaleureuse
+    ============================= */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+
+    .hero-visual {
+      background:
+        linear-gradient(135deg, rgba(61,36,32,0.55) 0%, rgba(61,36,32,0.2) 100%),
+        url('images/contact-hero.jpg') center / cover no-repeat,
+        linear-gradient(135deg, var(--brown), var(--brown-mid));
+      display: flex;
+      align-items: flex-end;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cercle décoratif */
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,147,138,0.2);
+    }
+
+    .hero-visual-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--rose-light); display: block; margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 5vw, 68px);
+      font-weight: 300; color: var(--white);
+      line-height: 1.1; margin-bottom: 18px;
+    }
+
+    .hero-title em { font-style: italic; color: var(--rose-light); }
+
+    .hero-tagline {
+      font-size: 14px; font-weight: 300;
+      color: rgba(255,255,255,0.6); line-height: 1.75;
+      max-width: 360px;
+    }
+
+    /* Infos rapides dans le hero */
+    .hero-info {
+      background: var(--white);
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .hero-info-title {
+      font-family: var(--font-display);
+      font-size: 28px; font-weight: 300;
+      color: var(--brown);
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--cream-dark);
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-method:hover {
+      border-color: var(--rose-light);
+      transform: translateX(4px);
+    }
+
+    .contact-method-icon {
+      width: 48px; height: 48px;
+      background: var(--rose-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact-method-content {}
+
+    .contact-method-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 4px;
+    }
+
+    .contact-method-value {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 400;
+      color: var(--brown);
+    }
+
+    .contact-method-note {
+      font-size: 12px; font-weight: 300;
+      color: var(--brown-mid); margin-top: 2px;
+    }
+
+    .contact-method-arrow {
+      margin-left: auto;
+      color: var(--rose-light);
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .contact-method:hover .contact-method-arrow { transform: translateX(4px); }
+
+    /* ============================
+       FORMULAIRE DE CONTACT
+    ============================= */
+    .contact-form-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Colonne gauche — contexte */
+    .form-context {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .section-label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 10px;
+    }
+
+    .form-context-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300; color: var(--brown); line-height: 1.15;
+    }
+
+    .form-context-title em { font-style: italic; color: var(--rose); }
+
+    .form-context-text {
+      font-size: 14px; font-weight: 300;
+      color: var(--brown-mid); line-height: 1.85;
+    }
+
+    /* Délai de réponse */
+    .response-time {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      background: var(--rose-pale);
+      border-left: 3px solid var(--rose);
+    }
+
+    .response-time-icon { font-size: 22px; }
+
+    .response-time-text {
+      font-size: 13px; font-weight: 300;
+      color: var(--brown-mid); line-height: 1.5;
+    }
+
+    .response-time-text strong { color: var(--brown); font-weight: 500; }
+
+    /* Socials dans contexte */
+    .form-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-socials-title {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--brown-mid);
+    }
+
+    .form-social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .form-social-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      font-size: 12px; font-weight: 500;
+      color: var(--brown-mid);
+      letter-spacing: 1px;
+      transition: all 0.2s;
+    }
+
+    .form-social-btn:hover { border-color: var(--rose); color: var(--rose); }
+
+    /* Formulaire */
+    .contact-form {
+      background: var(--white);
+      padding: 48px;
+      border: 1px solid var(--cream-dark);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    .form-label .required { color: var(--rose); }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--brown);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      appearance: none;
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--mauve-light); }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--rose);
+      background: var(--white);
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B08A9A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .form-textarea { resize: vertical; min-height: 140px; line-height: 1.7; }
+
+    /* Sujet chips */
+    .subject-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .subject-chip {
+      padding: 8px 16px;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--brown-mid);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .subject-chip:hover { border-color: var(--rose-light); color: var(--brown); }
+    .subject-chip.active { background: var(--brown); border-color: var(--brown); color: var(--white); }
+
+    /* Newsletter opt-in */
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.6;
+    }
+
+    .form-checkbox input { display: none; }
+
+    .checkbox-visual {
+      width: 18px; height: 18px;
+      border: 1px solid var(--cream-dark);
+      background: var(--cream);
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: transparent;
+      transition: all 0.2s;
+    }
+
+    .form-checkbox input:checked + .checkbox-visual {
+      background: var(--brown);
+      border-color: var(--brown);
+      color: var(--white);
+    }
+
+    /* Submit */
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      background: var(--brown);
+      color: var(--white);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--rose); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Confirmation message */
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      gap: 20px;
+    }
+
+    .form-success.visible { display: flex; }
+    .form-success-icon { font-size: 52px; }
+
+    .form-success-title {
+      font-family: var(--font-display);
+      font-size: 40px; font-weight: 300;
+      color: var(--brown);
+    }
+
+    .form-success-text {
+      font-size: 15px; font-weight: 300;
+      color: var(--brown-mid); line-height: 1.7;
+      max-width: 360px;
+    }
+
+    /* ============================
+       SECTION COMMUNAUTÉ
+    ============================= */
+    .community {
+      background: var(--brown);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .community-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .community-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .community-title em { font-style: italic; color: var(--rose-light); }
+
+    .community-text {
+      font-size: 15px; font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8; margin-bottom: 40px;
+    }
+
+    .community-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .community-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .community-link:hover {
+      border-color: var(--rose-light);
+      color: var(--rose-light);
+      background: rgba(200,147,138,0.1);
+    }
+
+    /* ============================
+       REVEAL
+    ============================= */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ============================
+       FOOTER
+    ============================= */
+    footer { background: var(--black); color: rgba(255,255,255,0.6); padding: 80px 40px 40px; }
+    .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-logo { font-family: var(--font-display); font-size: 32px; font-weight: 300; color: var(--white); letter-spacing: 3px; text-transform: lowercase; margin-bottom: 20px; }
+    .footer-logo span { color: var(--rose); }
+    .footer-brand-text { font-size: 13px; font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .social-link { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 13px; transition: all 0.3s; }
+    .social-link:hover { border-color: var(--rose); color: var(--rose); }
+    .footer-col-title { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--white); margin-bottom: 24px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; font-weight: 300; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--rose); }
+    .footer-bottom { max-width: 1300px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; font-size: 12px; }
+
+    /* ============================
+       RESPONSIVE
+    ============================= */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 360px; padding: 40px; }
+      .contact-form-section { grid-template-columns: 1fr; gap: 48px; }
+      .form-context { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-info { padding: 40px 24px; }
+      .contact-form-section { padding: 60px 20px; }
+      .contact-form { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .community { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement">✨ Livraison gratuite dès 50€ d'achat — Pour toi, sœur</div>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo">hij<span>shop</span></a>
+      <ul class="nav-links">
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="boutique.html">Sport</a></li>
+        <li><a href="lifestyle.html">Lifestyle</a></li>
+        <li><a href="notre-histoire.html">Notre Histoire</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="compte.html">Compte</a>
+        <a href="panier.html">Panier <span class="cart-count">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================================
+       HERO SPLIT
+       Image: images/contact-hero.jpg
+       → Photo ambiance douce et chaleureuse
+  ================================= -->
+  <section class="hero">
+
+    <div class="hero-visual">
+      <div class="hero-visual-content">
+        <span class="hero-eyebrow">Nous contacter</span>
+        <h1 class="hero-title">On est là<br>pour <em>toi</em></h1>
+        <p class="hero-tagline">
+          Une question, un retour, une idée à partager ? Notre équipe de sœurs est disponible 7j/7 et te répond avec plaisir.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-info">
+      <h2 class="hero-info-title">Comment nous joindre</h2>
+      <div class="contact-methods">
+
+        <a href="mailto:hello@hijshop.com" class="contact-method">
+          <div class="contact-method-icon">📧</div>
+          <div class="contact-method-content">
+            <span class="contact-method-label">Email</span>
+            <span class="contact-method-value">hello@hijshop.com</span>
+            <p class="contact-method-note">Réponse sous 24-48h</p>
+          </div>
+          <span class="contact-method-arrow">→</span>
+        </a>
+
+        <a href="https://instagram.com/hijshop" target="_blank" class="contact-method">
+          <div class="contact-method-icon">📸</div>
+          <div class="contact-method-content">
+            <span class="contact-method-label">Instagram</span>
+            <span class="contact-method-value">@hijshop</span>
+            <p class="contact-method-note">DM ouverts · réponse rapide</p>
+          </div>
+          <span class="contact-method-arrow">→</span>
+        </a>
+
+        <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="contact-method">
+          <div class="contact-method-icon">▶️</div>
+          <div class="contact-method-content">
+            <span class="contact-method-label">YouTube</span>
+            <span class="contact-method-value">hijshop Podcast</span>
+            <p class="contact-method-note">Épisodes · commentaires</p>
+          </div>
+          <span class="contact-method-arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       FORMULAIRE
+  ================================= -->
+  <div class="contact-form-section">
+
+    <!-- Contexte -->
+    <div class="form-context reveal-left">
+      <div>
+        <span class="section-label">Formulaire de contact</span>
+        <h2 class="form-context-title">
+          Écris-nous,<br>
+          <em>sœur</em>
+        </h2>
+      </div>
+
+      <p class="form-context-text">
+        Que ce soit pour une question sur ta commande, un problème de livraison, ou juste pour nous dire bonjour — on est sincèrement contentes de t'entendre.
+      </p>
+
+      <div class="response-time">
+        <span class="response-time-icon">⏱️</span>
+        <p class="response-time-text">
+          <strong>Délai de réponse : 24 à 48h</strong><br>
+          Du lundi au dimanche, nous lisons tous tes messages.
+        </p>
+      </div>
+
+      <div class="form-socials">
+        <p class="form-socials-title">Nous suivre</p>
+        <div class="form-social-links">
+          <a href="https://instagram.com/hijshop" target="_blank" class="form-social-btn">
+            <span>📸</span> Instagram
+          </a>
+          <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="form-social-btn">
+            <span>▶️</span> YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="contact-form reveal-right" id="contactFormWrap">
+
+      <!-- Succès (caché par défaut) -->
+      <div class="form-success" id="formSuccess">
+        <span class="form-success-icon">🤍</span>
+        <h3 class="form-success-title">Message envoyé !</h3>
+        <p class="form-success-text">
+          Merci sœur, on a bien reçu ton message. Notre équipe te répond dans les 24-48h. Que Allah te bénisse !
+        </p>
+        <button onclick="resetForm()" style="margin-top:8px; padding:12px 28px; background:var(--brown); color:var(--white); border:none; font-family:var(--font-body); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; cursor:pointer;">
+          Envoyer un autre message
+        </button>
+      </div>
+
+      <!-- Formulaire principal -->
+      <form id="contactForm" onsubmit="submitForm(event)">
+
+        <!-- Sujet rapide -->
+        <div class="form-group">
+          <label class="form-label">Sujet</label>
+          <div class="subject-chips">
+            <button type="button" class="subject-chip active" onclick="selectChip(this)">Ma commande</button>
+            <button type="button" class="subject-chip" onclick="selectChip(this)">Livraison</button>
+            <button type="button" class="subject-chip" onclick="selectChip(this)">Retour / Échange</button>
+            <button type="button" class="subject-chip" onclick="selectChip(this)">Produit</button>
+            <button type="button" class="subject-chip" onclick="selectChip(this)">Autre</button>
+          </div>
+        </div>
+
+        <!-- Nom + Email -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="firstName">Prénom <span class="required">*</span></label>
+            <input class="form-input" type="text" id="firstName" placeholder="Fatima" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email <span class="required">*</span></label>
+            <input class="form-input" type="email" id="email" placeholder="ton@email.com" required />
+          </div>
+        </div>
+
+        <!-- N° commande (optionnel) -->
+        <div class="form-group">
+          <label class="form-label" for="orderNum">Numéro de commande <span style="color:var(--mauve-light); font-weight:300; text-transform:none; letter-spacing:0">(optionnel)</span></label>
+          <input class="form-input" type="text" id="orderNum" placeholder="HJS-2025-XXXXX" />
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label class="form-label" for="message">Message <span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" placeholder="Bonjour, j'aimerais savoir..." required></textarea>
+        </div>
+
+        <!-- Newsletter opt-in -->
+        <div class="form-group">
+          <label class="form-checkbox">
+            <input type="checkbox" id="newsletter" />
+            <span class="checkbox-visual">✓</span>
+            <span>Je souhaite recevoir les nouveautés et conseils lifestyle hijshop chaque vendredi</span>
+          </label>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">
+          <span id="submitIcon">📨</span>
+          <span id="submitText">Envoyer mon message</span>
+        </button>
+
+        <p style="font-size:11px; color:var(--mauve-light); margin-top:12px; text-align:center;">
+          Tes données sont traitées avec respect · Aucun spam · Désabonnement à tout moment
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- ================================
+       COMMUNAUTÉ
+  ================================= -->
+  <section class="community">
+    <div class="community-inner reveal">
+      <h2 class="community-title">
+        Rejoins la communauté<br>
+        <em>hijshop</em>
+      </h2>
+      <p class="community-text">
+        Des milliers de sœurs partagent déjà leur style, leurs conseils et leurs rappels spirituels avec nous. Viens faire partie de cette famille.
+      </p>
+      <div class="community-links">
+        <a href="https://instagram.com/hijshop" target="_blank" class="community-link">
+          <span>📸</span> Instagram
+        </a>
+        <a href="https://www.tiktok.com/@hijshop" target="_blank" class="community-link">
+          <span>🎵</span> TikTok
+        </a>
+        <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="community-link">
+          <span>▶️</span> YouTube Podcast
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">hij<span>shop</span></div>
+        <p class="footer-brand-text">La destination lifestyle des femmes musulmanes. Mode pudique, sportswear halal et contenus inspirants.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">TK</a>
+          <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="social-link">YT</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Boutique</h4>
+        <ul class="footer-links">
+          <li><a href="boutique.html">Hijabs</a></li>
+          <li><a href="boutique.html">Sportswear</a></li>
+          <li><a href="boutique.html">Accessoires</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Lifestyle</h4>
+        <ul class="footer-links">
+          <li><a href="lifestyle.html">Podcast</a></li>
+          <li><a href="lifestyle.html">Coaching Sport</a></li>
+          <li><a href="lifestyle.html">Rappels Islamiques</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Aide</h4>
+        <ul class="footer-links">
+          <li><a href="notre-histoire.html">Notre Histoire</a></li>
+          <li><a href="faq.html">FAQ & Livraison</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 hijshop — Mode musulmane avec fierté</p>
+      <div style="display:flex;gap:24px;">
+        <a href="#" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Mentions légales</a>
+        <a href="#" style="font-size:12px;transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal
+    const obs = new IntersectionObserver(e => e.forEach(el => {
+      if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+
+    // Subject chips
+    function selectChip(el) {
+      document.querySelectorAll('.subject-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Checkbox visuel
+    document.querySelectorAll('.form-checkbox').forEach(label => {
+      label.addEventListener('click', () => {
+        const input = label.querySelector('input');
+        input.checked = !input.checked;
+        label.querySelector('.checkbox-visual').textContent = input.checked ? '✓' : '';
+      });
+    });
+
+    // Soumission formulaire
+    function submitForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const icon = document.getElementById('submitIcon');
+      const text = document.getElementById('submitText');
+
+      btn.disabled = true;
+      icon.textContent = '⏳';
+      text.textContent = 'Envoi en cours...';
+
+      setTimeout(() => {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      }, 1400);
+    }
+
+    function resetForm() {
+      document.getElementById('formSuccess').classList.remove('visible');
+      document.getElementById('contactForm').style.display = '';
+      document.getElementById('contactForm').reset();
+      document.getElementById('submitBtn').disabled = false;
+      document.getElementById('submitIcon').textContent = '📨';
+      document.getElementById('submitText').textContent = 'Envoyer mon message';
+      document.querySelectorAll('.subject-chip').forEach((c, i) => c.classList.toggle('active', i === 0));
+    }
+  </script>
+
+</body>
+</html>
