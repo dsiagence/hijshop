@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hijshop — Ta mode, ta foi, ton lifestyle</title>
+  <meta name="description" content="La destination lifestyle des femmes musulmanes : hijabs premium, sportswear et inspiration au quotidien." />
+
+  <!-- ============================
+       FONTS
+  ============================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================
+       VARIABLES & RESET
+    ============================= */
+    :root {
+      --rose:        #C8938A;
+      --rose-light:  #E8C5BF;
+      --rose-pale:   #F5EBE8;
+      --mauve:       #B08A9A;
+      --mauve-light: #D6BEC8;
+      --cream:       #FAF6F3;
+      --cream-dark:  #F0E8E3;
+      --brown:       #3D2420;
+      --brown-mid:   #7A4F47;
+      --white:       #FFFFFF;
+      --black:       #1A1008;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --shadow-soft: 0 8px 40px rgba(61, 36, 32, 0.08);
+      --shadow-card: 0 4px 24px rgba(61, 36, 32, 0.12);
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--brown);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       UTILITY
+    ============================= */
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--brown-mid);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--brown);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--brown);
+      border: 1px solid var(--brown);
+    }
+    .btn-outline-dark:hover {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--brown);
+    }
+
+    /* ============================
+       ANNOUNCEMENT BAR
+    ============================= */
+    .announcement {
+      background: var(--brown);
+      color: var(--rose-light);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+    }
+
+    /* ============================
+       HEADER / NAV
+    ============================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 246, 243, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brown);
+      text-transform: lowercase;
+    }
+
+    .nav-logo span {
+      color: var(--rose);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--rose);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-icons a {
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--brown-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-icons a:hover { color: var(--rose); }
+
+    .cart-count {
+      background: var(--rose);
+      color: var(--white);
+      font-size: 10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 4px;
+    }
+
+    /* ============================
+       HERO
+       Image: images/hero.jpg
+       Taille recommandée: 1920x1080px min
+       Portrait/paysage d'une modèle en tenue complète
+    ============================= */
+    .hero {
+      position: relative;
+      height: 95vh;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      /* Gradient de gauche à droite pour laisser place au texte */
+      background:
+        linear-gradient(to right, rgba(26,16,8,0.62) 0%, rgba(26,16,8,0.15) 60%, transparent 100%),
+        url('images/hero.jpg') center center / cover no-repeat;
+      transform: scale(1.02);
+      animation: heroZoom 12s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.08); }
+      to   { transform: scale(1.00); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 80px;
+      max-width: 700px;
+      animation: heroFadeUp 1.2s ease-out 0.3s both;
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose-light);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 440px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: heroFadeUp 1s ease-out 1.5s both;
+    }
+
+    .hero-scroll span {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.3); }
+    }
+
+    /* ============================
+       REASSURANCE BAR
+    ============================= */
+    .reassurance {
+      background: var(--white);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 20px 40px;
+    }
+
+    .reassurance-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--brown-mid);
+    }
+
+    .reassurance-icon {
+      font-size: 18px;
+    }
+
+    /* ============================
+       UNIVERS — 3 CARDS
+       Images:
+         images/univers-mode.jpg    → modèle tenue élégante
+         images/univers-sport.jpg   → modèle tenue sport
+         images/univers-lifestyle.jpg → ambiance lifestyle
+    ============================= */
+    .univers {
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .univers-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .univers-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+      height: 580px;
+    }
+
+    .univers-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .univers-card-image {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .univers-card:hover .univers-card-image {
+      transform: scale(1.06);
+    }
+
+    /* Overlay gradient */
+    .univers-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,16,8,0.75) 0%, rgba(26,16,8,0.1) 50%, transparent 100%);
+      transition: opacity 0.4s;
+    }
+
+    .univers-card:hover::after {
+      background: linear-gradient(to top, rgba(26,16,8,0.85) 0%, rgba(26,16,8,0.2) 50%, transparent 100%);
+    }
+
+    .univers-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .univers-card-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose-light);
+    }
+
+    .univers-card-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .univers-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.4s ease;
+    }
+
+    .univers-card:hover .univers-card-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .univers-card-cta::after {
+      content: '→';
+    }
+
+    /* Backgrounds images avec fallback couleur */
+    .card-mode .univers-card-image {
+      background: url('images/univers-mode.jpg') center center / cover no-repeat,
+                  linear-gradient(135deg, var(--rose-light), var(--mauve));
+    }
+
+    .card-sport .univers-card-image {
+      background: url('images/univers-sport.jpg') center center / cover no-repeat,
+                  linear-gradient(135deg, var(--mauve), var(--brown-mid));
+    }
+
+    .card-lifestyle .univers-card-image {
+      background: url('images/univers-lifestyle.jpg') center top / cover no-repeat,
+                  linear-gradient(135deg, var(--cream-dark), var(--rose-light));
+    }
+
+    /* ============================
+       BESTSELLERS
+       Images: images/produit-1.jpg à produit-4.jpg
+       Photos produit sur fond neutre
+    ============================= */
+    .bestsellers {
+      background: var(--white);
+      padding: 100px 40px;
+    }
+
+    .bestsellers-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .bestsellers-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      cursor: pointer;
+    }
+
+    .product-card-image {
+      aspect-ratio: 3/4;
+      background: var(--cream);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    /* Numérotation des images produit :
+       images/produit-1.jpg = Hijab Bandeau Premium
+       images/produit-2.jpg = Hijab Sport Performance
+       images/produit-3.jpg = Ensemble Sport Elite
+       images/produit-4.jpg = Robe Fendue Performance Chic
+    */
+    .product-card:nth-child(1) .product-card-image {
+      background: url('images/episode-1.jpg') center / cover no-repeat, var(--cream);
+    }
+    .product-card:nth-child(2) .product-card-image {
+      background: url('images/produit-detail-3.jpg') center / cover no-repeat, var(--cream);
+    }
+    .product-card:nth-child(3) .product-card-image {
+      background: url('images/histoire-3.jpg') center / cover no-repeat, var(--cream);
+    }
+    .product-card:nth-child(4) .product-card-image {
+      background: url('images/lifestyle-rappels.jpg') center / cover no-repeat, var(--cream);
+    }
+
+    .product-card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26,16,8,0);
+      transition: background 0.4s;
+    }
+
+    .product-card:hover .product-card-image::after {
+      background: rgba(26,16,8,0.06);
+    }
+
+    .product-card-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      background: var(--rose);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+    }
+
+    .add-to-cart {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      background: var(--brown);
+      color: var(--white);
+      text-align: center;
+      padding: 14px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: bottom 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover .add-to-cart {
+      bottom: 0;
+    }
+
+    .product-info { padding: 0 4px; }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--brown);
+      margin-bottom: 6px;
+    }
+
+    .product-desc {
+      font-size: 12px;
+      color: var(--brown-mid);
+      font-weight: 300;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .product-price {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--rose);
+    }
+
+    /* ============================
+       STORYTELLING
+       Image: images/storytelling.jpg
+       → Photo ambiance ou fondatrice
+    ============================= */
+    .story {
+      padding: 120px 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .story-image-wrap {
+      position: relative;
+      height: 620px;
+    }
+
+    .story-image-main {
+      width: 85%;
+      height: 100%;
+      background: url('images/storytelling.jpg') center / cover no-repeat,
+                  linear-gradient(135deg, var(--rose-pale), var(--mauve-light));
+    }
+
+    /* Cadre décoratif décalé */
+    .story-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: -24px;
+      width: 55%;
+      height: 70%;
+      border: 1px solid var(--rose-light);
+      z-index: -1;
+    }
+
+    /* Étiquette flottante */
+    .story-tag {
+      position: absolute;
+      bottom: 40px;
+      right: 0;
+      background: var(--white);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-card);
+      max-width: 200px;
+    }
+
+    .story-tag-number {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--rose);
+      display: block;
+      line-height: 1;
+    }
+
+    .story-tag-text {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--brown-mid);
+      margin-top: 6px;
+    }
+
+    .story-content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .story-text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      line-height: 1.85;
+    }
+
+    .story-quote {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1.4;
+      border-left: 2px solid var(--rose);
+      padding-left: 24px;
+    }
+
+    /* ============================
+       LIFESTYLE TEASER
+       Images:
+         images/lifestyle-podcast.jpg    → ambiance écoute / conversation
+         images/lifestyle-coaching.jpg   → fitness / mouvement
+         images/lifestyle-rappels.jpg    → ambiance spirituelle / calme
+    ============================= */
+    .lifestyle {
+      background: var(--brown);
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Motif décoratif géométrique arabe */
+    .lifestyle::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 147, 138, 0.12);
+    }
+
+    .lifestyle::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 147, 138, 0.08);
+    }
+
+    .lifestyle-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .lifestyle-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .lifestyle-header .section-label {
+      color: var(--rose-light);
+    }
+
+    .lifestyle-header .section-title {
+      color: var(--white);
+    }
+
+    .lifestyle-header p {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.55);
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .lifestyle-card {
+      position: relative;
+      overflow: hidden;
+      height: 460px;
+      cursor: pointer;
+    }
+
+    .lifestyle-card-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.7s ease;
+    }
+
+    .lifestyle-card:hover .lifestyle-card-bg {
+      transform: scale(1.05);
+    }
+
+    .card-podcast .lifestyle-card-bg {
+      background: url('images/lifestyle-podcast.jpg') center / cover no-repeat,
+                  linear-gradient(135deg, #4a2020, #2C1810);
+    }
+
+    .card-coaching .lifestyle-card-bg {
+      background: url('images/lifestyle-coaching.jpg') center / cover no-repeat,
+                  linear-gradient(135deg, #2a2a3a, #1a1828);
+    }
+
+    .card-rappels .lifestyle-card-bg {
+      background: url('images/lifestyle-rappels.jpg') center / cover no-repeat,
+                  linear-gradient(135deg, #3a2a1a, #2C1810);
+    }
+
+    .lifestyle-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.3) 50%, transparent 100%);
+    }
+
+    .lifestyle-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 36px 30px;
+    }
+
+    .lifestyle-card-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .lifestyle-card-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .lifestyle-card-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .lifestyle-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .lifestyle-badge.active {
+      background: var(--rose);
+      border-color: var(--rose);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ============================
+       NEWSLETTER
+    ============================= */
+    .newsletter {
+      background: var(--rose-pale);
+      padding: 90px 40px;
+      text-align: center;
+    }
+
+    .newsletter-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 300;
+      color: var(--brown);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .newsletter-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--brown-mid);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid var(--rose-light);
+      border-right: none;
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--brown);
+      outline: none;
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--mauve-light);
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--rose);
+    }
+
+    .newsletter-btn {
+      padding: 16px 28px;
+      background: var(--brown);
+      color: var(--white);
+      border: 1px solid var(--brown);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+      background: var(--rose);
+      border-color: var(--rose);
+    }
+
+    .newsletter-legal {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--mauve);
+    }
+
+    /* ============================
+       FOOTER
+    ============================= */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.6);
+      padding: 80px 40px 40px;
+    }
+
+    .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 3px;
+      text-transform: lowercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo span { color: var(--rose); }
+
+    .footer-brand-text {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--rose); }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    /* ============================
+       SCROLL ANIMATIONS
+    ============================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================
+       RESPONSIVE
+    ============================= */
+    @media (max-width: 1024px) {
+      .univers-grid { grid-template-columns: 1fr 1fr; height: auto; }
+      .card-lifestyle { grid-column: span 2; height: 300px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .story { grid-template-columns: 1fr; gap: 60px; }
+      .story-image-wrap { height: 460px; }
+      .lifestyle-grid { grid-template-columns: 1fr 1fr; }
+      .card-rappels { grid-column: span 2; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 0 30px; }
+      .univers-grid { grid-template-columns: 1fr; height: auto; }
+      .card-lifestyle { grid-column: auto; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .lifestyle-grid { grid-template-columns: 1fr; }
+      .card-rappels { grid-column: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid var(--rose-light); }
+      .bestsellers-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================
+       ANNOUNCEMENT BAR
+  ================================= -->
+  <div class="announcement">
+    ✨ Livraison gratuite dès 50€ d'achat — Pour toi, sœur
+  </div>
+
+  <!-- ================================
+       HEADER
+  ================================= -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">hij<span>shop</span></a>
+
+      <ul class="nav-links">
+        <li><a href="/boutique.html">Boutique</a></li>
+        <li><a href="/sport.html">Sport</a></li>
+        <li><a href="/lifestyle.html">Lifestyle</a></li>
+        <li><a href="/notre-histoire.html">Notre Histoire</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="/compte.html">Compte</a>
+        <a href="/panier.html">Panier <span class="cart-count">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================================
+         HERO
+         → Remplace: images/hero.jpg
+         → Photo portrait modèle (haute résolution)
+    ================================= -->
+    <section class="hero">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Nouvelle collection</p>
+        <h1 class="hero-title">
+          Ta mode,<br>
+          ta foi,<br>
+          <em>ton lifestyle</em>
+        </h1>
+        <p class="hero-subtitle">
+          La destination lifestyle des femmes musulmanes : hijabs premium, sportswear et inspiration au quotidien.
+        </p>
+        <div class="hero-ctas">
+          <a href="/boutique.html" class="btn btn-primary">Découvrir la collection</a>
+          <a href="/lifestyle.html" class="btn btn-outline">Explorer le lifestyle</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Découvrir</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ================================
+         REASSURANCE BAR
+    ================================= -->
+    <div class="reassurance">
+      <div class="reassurance-inner">
+        <div class="reassurance-item">
+          <span class="reassurance-icon">🚚</span>
+          <span>Livraison gratuite dès 50€</span>
+        </div>
+        <div class="reassurance-item">
+          <span class="reassurance-icon">✨</span>
+          <span>Mode 100% pudique</span>
+        </div>
+        <div class="reassurance-item">
+          <span class="reassurance-icon">🎙️</span>
+          <span>Podcast & Coaching inclus</span>
+        </div>
+        <div class="reassurance-item">
+          <span class="reassurance-icon">💚</span>
+          <span>Par des sœurs, pour des sœurs</span>
+        </div>
+        <div class="reassurance-item">
+          <span class="reassurance-icon">↩️</span>
+          <span>Retours gratuits 30 jours</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================
+         LES 3 UNIVERS
+         → Remplace:
+           images/univers-mode.jpg
+           images/univers-sport.jpg
+           images/univers-lifestyle.jpg
+    ================================= -->
+    <section class="univers">
+      <div class="univers-header reveal">
+        <span class="section-label">Nos univers</span>
+        <h2 class="section-title">Tout ce dont tu as besoin,<br><em style="font-style:italic">au même endroit</em></h2>
+      </div>
+
+      <div class="univers-grid">
+        <a href="/boutique.html" class="univers-card card-mode reveal">
+          <div class="univers-card-image"></div>
+          <div class="univers-card-content">
+            <span class="univers-card-label">Mode pudique</span>
+            <h3 class="univers-card-title">La Boutique</h3>
+            <span class="univers-card-cta">Découvrir</span>
+          </div>
+        </a>
+
+        <a href="/sport.html" class="univers-card card-sport reveal reveal-delay-1">
+          <div class="univers-card-image"></div>
+          <div class="univers-card-content">
+            <span class="univers-card-label">Sportswear halal</span>
+            <h3 class="univers-card-title">Le Sport</h3>
+            <span class="univers-card-cta">S'équiper</span>
+          </div>
+        </a>
+
+        <a href="/lifestyle.html" class="univers-card card-lifestyle reveal reveal-delay-2">
+          <div class="univers-card-image"></div>
+          <div class="univers-card-content">
+            <span class="univers-card-label">Podcast · Coaching · Foi</span>
+            <h3 class="univers-card-title">Le Lifestyle</h3>
+            <span class="univers-card-cta">Explorer</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================================
+         BESTSELLERS
+         → Remplace:
+           images/produit-1.jpg (Hijab Bandeau Premium)
+           images/produit-2.jpg (Hijab Sport Performance)
+           images/produit-3.jpg (Ensemble Sport Elite)
+           images/produit-4.jpg (Robe Fendue Performance Chic)
+    ================================= -->
+    <section class="bestsellers">
+      <div class="bestsellers-inner">
+        <div class="bestsellers-header reveal">
+          <div>
+            <span class="section-label">Sélection</span>
+            <h2 class="section-title">Les incontournables</h2>
+          </div>
+          <a href="/boutique.html" class="btn btn-outline-dark">Voir tout</a>
+        </div>
+
+        <div class="products-grid">
+
+          <div class="product-card reveal">
+            <div class="product-card-image">
+              <span class="product-card-badge">Bestseller</span>
+              <div class="add-to-cart">Ajouter au panier</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Hijab Bandeau Premium</h3>
+              <p class="product-desc">Confort exceptionnel, tenue parfaite en toutes circonstances.</p>
+              <span class="product-price">24,99 €</span>
+            </div>
+          </div>
+
+          <div class="product-card reveal reveal-delay-1">
+            <div class="product-card-image">
+              <span class="product-card-badge">Nouveau</span>
+              <div class="add-to-cart">Ajouter au panier</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Hijab Sport Performance</h3>
+              <p class="product-desc">Stretch respirant, maintien sécurisé pour l'entraînement.</p>
+              <span class="product-price">29,99 €</span>
+            </div>
+          </div>
+
+          <div class="product-card reveal reveal-delay-2">
+            <div class="product-card-image">
+              <div class="add-to-cart">Ajouter au panier</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Ensemble Sport Elite</h3>
+              <p class="product-desc">Ensemble technique coordonné pour performances sans limite.</p>
+              <span class="product-price">69,99 €</span>
+            </div>
+          </div>
+
+          <div class="product-card reveal reveal-delay-3">
+            <div class="product-card-image">
+              <span class="product-card-badge">Coup de cœur</span>
+              <div class="add-to-cart">Ajouter au panier</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Robe Fendue Performance</h3>
+              <p class="product-desc">Du tapis de yoga au brunch, avec élégance.</p>
+              <span class="product-price">49,99 €</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         STORYTELLING / NOTRE HISTOIRE
+         → Remplace: images/storytelling.jpg
+         → Photo fondatrice ou ambiance chaleureuse
+    ================================= -->
+    <section class="story">
+      <div class="story-image-wrap reveal">
+        <div class="story-image-main"></div>
+        <div class="story-tag">
+          <span class="story-tag-number">+50k</span>
+          <p class="story-tag-text">Sœurs qui nous font confiance</p>
+        </div>
+      </div>
+
+      <div class="story-content reveal reveal-delay-1">
+        <span class="section-label">Notre histoire</span>
+        <h2 class="section-title">Comment Tout a<br><em style="font-style:italic">Commencé</em></h2>
+
+        <blockquote class="story-quote">
+          "Je cherchais des vêtements beaux, modernes et vraiment conformes à mes principes islamiques. Je ne les trouvais pas."
+        </blockquote>
+
+        <p class="story-text">
+          hijshop est né d'une frustration que tu connais peut-être. En tant que sœur voilée, je ne me retrouvais pas dans la mode actuelle. Alors j'ai créé la destination que je cherchais : plus qu'une boutique, une communauté lifestyle où mode pudique, fitness et spiritualité se rencontrent.
+        </p>
+
+        <p class="story-text">
+          Parce que tu es une femme moderne, active, spirituelle et élégante à la fois. Bienvenue dans ta nouvelle maison.
+        </p>
+
+        <a href="/notre-histoire.html" class="btn btn-outline-dark" style="align-self: flex-start;">
+          Lire notre histoire
+        </a>
+      </div>
+    </section>
+
+    <!-- ================================
+         LIFESTYLE TEASER
+         → Remplace:
+           images/lifestyle-podcast.jpg
+           images/lifestyle-coaching.jpg
+           images/lifestyle-rappels.jpg
+    ================================= -->
+    <section class="lifestyle">
+      <div class="lifestyle-inner">
+        <div class="lifestyle-header reveal">
+          <span class="section-label">Plus qu'une boutique</span>
+          <h2 class="section-title" style="color:var(--white)">Le Lifestyle Hub</h2>
+          <p>Contenu exclusif conçu pour toi, par des sœurs qui te comprennent.</p>
+        </div>
+
+        <div class="lifestyle-grid">
+
+          <div class="lifestyle-card card-podcast reveal">
+            <div class="lifestyle-card-bg"></div>
+            <div class="lifestyle-card-overlay"></div>
+            <div class="lifestyle-card-content">
+              <span class="lifestyle-card-icon">🎙️</span>
+              <h3 class="lifestyle-card-title">Le Podcast hijshop</h3>
+              <p class="lifestyle-card-desc">Parlons mariage, parlons religion, parlons vrai. Témoignages de sœurs, conseils d'expertes, rappels spirituels.</p>
+              <a href="https://www.youtube.com/@hijshop-podcast" target="_blank" class="lifestyle-badge active">Écouter sur YouTube</a>
+            </div>
+          </div>
+
+          <div class="lifestyle-card card-coaching reveal reveal-delay-1">
+            <div class="lifestyle-card-bg"></div>
+            <div class="lifestyle-card-overlay"></div>
+            <div class="lifestyle-card-content">
+              <span class="lifestyle-card-icon">💪</span>
+              <h3 class="lifestyle-card-title">Coaching Sport & Nutrition</h3>
+              <p class="lifestyle-card-desc">Programmes d'entraînement adaptés et conseils nutrition pour prendre soin de ton corps tout en respectant tes principes.</p>
+              <span class="lifestyle-badge">Bientôt disponible</span>
+            </div>
+          </div>
+
+          <div class="lifestyle-card card-rappels reveal reveal-delay-2">
+            <div class="lifestyle-card-bg"></div>
+            <div class="lifestyle-card-overlay"></div>
+            <div class="lifestyle-card-content">
+              <span class="lifestyle-card-icon">🤍</span>
+              <h3 class="lifestyle-card-title">Rappels Islamiques</h3>
+              <p class="lifestyle-card-desc">Nourris ton cœur avec des rappels quotidiens tirés du Coran et de la Sunna pour illuminer ton parcours.</p>
+              <span class="lifestyle-badge">Bientôt disponible</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         NEWSLETTER
+    ================================= -->
+    <section class="newsletter">
+      <div class="newsletter-inner reveal">
+        <span class="section-label">Reste connectée</span>
+        <h2 class="newsletter-title">La newsletter des sœurs hijshop</h2>
+        <p class="newsletter-text">
+          Chaque vendredi : un reminder spirituel, un conseil fitness et nos dernières nouveautés. Rien de superflu, que l'essentiel.
+        </p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input
+            type="email"
+            class="newsletter-input"
+            placeholder="ton@email.com"
+            required
+          />
+          <button type="submit" class="newsletter-btn">S'inscrire</button>
+        </form>
+        <p class="newsletter-legal">Pas de spam. Désabonnement en un clic.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================
+       FOOTER
+  ================================= -->
+  <footer>
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-logo">hij<span>shop</span></div>
+        <p class="footer-brand-text">
+          La destination lifestyle des femmes musulmanes. Mode pudique, sportswear halal et contenus inspirants.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="TikTok">TK</a>
+          <a href="https://www.youtube.com/@hijshop-podcast" class="social-link" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Boutique</h4>
+        <ul class="footer-links">
+          <li><a href="/boutique.html">Hijabs</a></li>
+          <li><a href="/sport.html">Sportswear</a></li>
+          <li><a href="/accessoires.html">Accessoires</a></li>
+          <li><a href="/bundles.html">Packs & Bundles</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Lifestyle</h4>
+        <ul class="footer-links">
+          <li><a href="/podcast.html">Podcast</a></li>
+          <li><a href="/coaching.html">Coaching Sport</a></li>
+          <li><a href="/rappels.html">Rappels Islamiques</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Aide</h4>
+        <ul class="footer-links">
+          <li><a href="/notre-histoire.html">Notre Histoire</a></li>
+          <li><a href="/livraison.html">Livraison & Retours</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 hijshop — Mode musulmane avec fierté</p>
+      <div style="display:flex; gap:24px;">
+        <a href="/mentions-legales.html" style="font-size:12px; transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Mentions légales</a>
+        <a href="/politique-confidentialite.html" style="font-size:12px; transition:color 0.2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color=''">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================
+       JAVASCRIPT
+  ================================= -->
+  <script>
+    // --- Scroll reveal ---
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // --- Newsletter ---
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Inscrite !';
+      btn.style.background = 'var(--rose)';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = "S'inscrire";
+        btn.style.background = '';
+      }, 3000);
+    }
+
+    // --- Cart count (simple state) ---
+    let cartCount = 0;
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        document.querySelector('.cart-count').textContent = cartCount;
+        btn.textContent = '✓ Ajouté !';
+        btn.style.background = 'var(--rose)';
+        setTimeout(() => {
+          btn.textContent = 'Ajouter au panier';
+          btn.style.background = '';
+        }, 1500);
+      });
+    });
+  </script>
+
+</body>
+</html>
